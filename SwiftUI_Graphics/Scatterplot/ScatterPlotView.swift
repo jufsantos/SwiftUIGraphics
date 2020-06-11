@@ -11,17 +11,11 @@ import SwiftUI
 
 struct ScatterPlotView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            ZStack() {
-                Axis(lineWidth: 20)
-            }
-        }
+        Axis(lineWidth: 20)
     }
 }
 
 struct Axis: View {
-    #warning("ZStack does not reach top of the screen")
     var lineWidth: CGFloat = 1
     var body: some View {
         ZStack {
@@ -36,6 +30,7 @@ struct Axis: View {
                     .frame(width: nil, height: lineWidth, alignment: .leading)
             }
         }
+        .padding([.bottom,.leading])
     }
 }
 
