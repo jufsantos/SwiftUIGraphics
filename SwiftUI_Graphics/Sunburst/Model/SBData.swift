@@ -50,6 +50,7 @@ class SBData<T: Numeric>: Equatable {
     ///
     /// - Parameter child: A SBData that will be added as a child of the object.
     func addChild(_ child: SBData) {
+        guard !children.contains(child) else { return }
         if children.isEmpty { self.value = 0 }
         child.parent = self
         children.append(child)
