@@ -80,7 +80,9 @@ struct WordGraphView: View {
 //                Spacer().frame(width: CGFloat(Int.random(in: 0...200)))
             }
         }.fixedSize(horizontal: true, vertical: false)
-            .frame(width: UIScreen.screenWidth, height: UIScreen.screenHeight, alignment: .center)
+            .frame(width: UIScreen.main.bounds.width,
+                   height: UIScreen.main.bounds.height,
+                   alignment: .center)
             .scaledToFill()
     }
 
