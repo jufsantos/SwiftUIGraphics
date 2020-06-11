@@ -11,11 +11,11 @@ import SwiftUI
 struct LineView: View {
     var color: Color
     var points: [CGPoint] = []
-    init(_ points: () -> [CGPoint], color: Color = .random()) {
+    init(color: Color = .random(), _ points: () -> [CGPoint] ) {
         self.points = points()
         self.color = color
     }
-    init(_ points: [CGPoint], color: Color = .random()) {
+    init(color: Color = .random(), _ points: [CGPoint]) {
         self.points = points
         self.color = color
     }

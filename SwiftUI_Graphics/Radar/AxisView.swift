@@ -15,15 +15,16 @@ struct AxisComponent: Hashable {
 }
 
 struct AxisView: View {
-    
+    var color: Color
     var components: [AxisComponent]
     
     var degreeInterval: Double {
         return (Double.pi * 2) / Double(components.count)
     }
     
-    init(_ components: AxisComponent...) {
+    init(color: Color = .random(), _ components: AxisComponent...) {
         self.components = components
+        self.color = color
     }
     
     var body: some View {
@@ -32,14 +33,12 @@ struct AxisView: View {
             
             ForEach(0..<self.components.count) { (index) in
                 
-                LineView { () -> [CGPoint] in
+                LineView(color: self.color) { () -> [CGPoint] in
                     let center = CGPoint(x: geo.frame(in: .global).midX, y: geo.frame(in: .global).midY)
                     
                     let interval = self.degreeInterval * Double(index + 1)
-                    
-                    let nextX = Double(center.x) + 150 * cos(interval)
-                    let nextY = Double(center.y) + 150 * sin(interval)
-                    let nextPoint = CGPoint(x: nextX, y: nextY)
+            
+                    let nextPoint = CGPoint(x: 150 * cos(interval), y: 150 * sin(interval)) + center
                     
                     return [center, nextPoint]
                 }
@@ -56,4 +55,11 @@ struct AxisView_Previews: PreviewProvider {
             AxisComponent(subtitle: "C", scale: 0.5...60.7)
         )
     }
+}
+
+extension CGPoint {
+    static func +(p1:CGPoint, p2:CGPoint) -> CGPoint{
+        return CGPoint(x: p1.x + p2.x, y: p1.y+p2.y)
+    }
+    
 }
