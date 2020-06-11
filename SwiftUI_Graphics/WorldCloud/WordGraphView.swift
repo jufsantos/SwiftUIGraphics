@@ -12,66 +12,36 @@ import SwiftUI
 
 struct WordGraphView: View {
 
-    let controller = WordController()
-    var palavras: [WordModel] = [
-        WordModel(word: "5555555555"),
-        WordModel(word: "5555555555"),
-        WordModel(word: "2222222222"),
-        WordModel(word: "3333333333"),
-        WordModel(word: "4444444444"),
-        WordModel(word: "5555555555"),
-        WordModel(word: "1111111111"),
-        WordModel(word: "2222222222"),
-        WordModel(word: "3333333333"),
-        WordModel(word: "4444444444"),
-        WordModel(word: "5555555555"),
-        WordModel(word: "Felipe"),
-        WordModel(word: "Luiz"),
-        WordModel(word: "Tamara"),
-        WordModel(word: "Zewu"),
-        WordModel(word: "Lia")
-//        WordModel(word: "555555555"),
-//        WordModel(word: "55555555"),
-//        WordModel(word: "22222222"),
-//        WordModel(word: "33333333"),
-//        WordModel(word: "444444444"),
-//        WordModel(word: "555555"),
-//        WordModel(word: "1111111"),
-//        WordModel(word: "222222222"),
-//        WordModel(word: "3333333333"),
-//        WordModel(word: "444444"),
-//        WordModel(word: "55"),
-//        WordModel(word: "Flipe"),
-//        WordModel(word: "Liz"),
-//        WordModel(word: "Tmara"),
-//        WordModel(word: "Zwu"),
-//        WordModel(word: "ia"),
-//        WordModel(word: "1Felipe"),
-//        WordModel(word: "1Luiz"),
-//        WordModel(word: "1Tamara"),
-//        WordModel(word: "1Zewu"),
-//        WordModel(word: "1Lia"),
-//        WordModel(word: "1555555555"),
-//        WordModel(word: "155555555"),
-//        WordModel(word: "122222222"),
-//        WordModel(word: "133333333"),
-//        WordModel(word: "1444444444"),
-//        WordModel(word: "1555555"),
-//        WordModel(word: "11111111"),
-//        WordModel(word: "1222222222"),
-//        WordModel(word: "13333333333"),
-//        WordModel(word: "1444444"),
-//        WordModel(word: "155"),
-//        WordModel(word: "1Flipe"),
-//        WordModel(word: "1Liz"),
-//        WordModel(word: "1Tmara"),
-//        WordModel(word: "1Zwu"),
-//        WordModel(word: "1ia")
-    ]
+    private let controller = WordController()
+    private var words = [WordModel]()
+    private var minSize: Float
+    private var maxSize: Float
+    private var fontName: String
+    private var colors: [Color]
+
     @State private var totalHeight = CGFloat.infinity
 
-    init() {
-        self.palavras = self.controller.mapAndNormalizeWord(data: palavras, minSize: 20, maxSize: 50)
+    init(text: [String], fontName: String = "", minimumFontSize: Float = 20, maximumFontSize: Float = 50, colors: [Color] = []) {
+        self.minSize = minimumFontSize
+        self.maxSize = maximumFontSize
+        
+        let models = text.map {
+            WordModel(word: $0)
+        }
+        
+        self.fontName = fontName
+        
+        self.words = self.controller.mapAndNormalizeWord(
+            data: models,
+            minSize: self.minSize,
+            maxSize: self.maxSize
+        )
+        
+        if colors.isEmpty {
+            self.colors = [Color(#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)), Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)), Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)), Color(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1))]
+        } else {
+            self.colors = colors
+        }
     }
 
     var body: some View {
@@ -87,24 +57,24 @@ struct WordGraphView: View {
         var width = CGFloat.zero
         var height = CGFloat.zero
         var maxHeight = CGFloat.zero
-
+        
         return ZStack(alignment: .topLeading) {
-            ForEach(0..<palavras.count) { index in
-                self.item(for: self.palavras[index].word, size: self.palavras[index].size)
+            ForEach(0..<words.count) { index in
+                self.item(for: self.words[index].word, size: self.words[index].size)
                     .padding([.horizontal, .vertical], 0)
                     .alignmentGuide(.leading, computeValue: { d in
-                        if (abs(width - d.width) > g.size.width)
-                        {
+                        if (abs(width - d.width) > g.size.width) {
                             width = 0
                             height -= maxHeight
                             maxHeight = .zero
                         }
+                        
                         if d.height > maxHeight {
                             maxHeight = d.height
                         }
                         let result = width
-                        if self.palavras[index].id == self.palavras.last?.id {
-                            width = 0 //last item
+                        if self.words[index].id == self.words.last?.id {
+                            width = 0
                         } else {
                             width -= d.width
                         }
@@ -112,8 +82,8 @@ struct WordGraphView: View {
                     })
                     .alignmentGuide(.top, computeValue: {d in
                         let result = height
-                        if self.palavras[index].id == self.palavras.last?.id {
-                            height = 0 // last item
+                        if self.words[index].id == self.words.last?.id {
+                            height = 0
                         }
                         return result
                     })
@@ -122,7 +92,7 @@ struct WordGraphView: View {
     }
 
     private func item(for text: String, size: Float) -> some View {
-        WordView(word: text, size: size).fixedSize()
+        WordView(word: text, size: size, colors: self.colors, fontName: fontName).fixedSize()
     }
 
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
@@ -139,7 +109,22 @@ struct WordGraphView: View {
 struct TesteView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone XR"], id: \.self) { deviceName in
-            WordGraphView()
+            WordGraphView(text: ["5555555555",
+                                 "5555555555",
+                                 "2222222222",
+                                 "3333333333",
+                                 "4444444444",
+                                 "5555555555",
+                                 "1111111111",
+                                 "2222222222",
+                                 "3333333333",
+                                 "4444444444",
+                                 "5555555555",
+                                 "Felipe",
+                                 "Luiz",
+                                 "Tamara",
+                                 "Zewu",
+                                 "Lia"])
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }

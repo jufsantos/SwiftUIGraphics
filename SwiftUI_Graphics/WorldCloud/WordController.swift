@@ -85,7 +85,7 @@ final class WordController {
         }
 
         // Normalizes the font size by the value of occurrences of the word
-        if let minValue = minValue?.value, let maxValue = maxValue?.value {
+        if let _ = minValue?.value, let maxValue = maxValue?.value {
             data.map {
                 let value = $0.value
                 $0.size = ((Float(value) * maxSize) / Float(maxValue)) < minSize ? minSize : (Float(value) * maxSize) / Float(maxValue)
