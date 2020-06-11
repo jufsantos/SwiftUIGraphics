@@ -15,6 +15,7 @@ struct AxisComponent: Hashable {
 }
 
 struct AxisView: View {
+    
     var color: Color
     var components: [AxisComponent]
     
@@ -33,17 +34,37 @@ struct AxisView: View {
             
             ForEach(0..<self.components.count) { (index) in
                 
-                LineView(color: self.color) { () -> [CGPoint] in
-                    let center = CGPoint(x: geo.frame(in: .global).midX, y: geo.frame(in: .global).midY)
-                    
-                    let interval = self.degreeInterval * Double(index + 1)
-            
-                    let nextPoint = CGPoint(x: 150 * cos(interval), y: 150 * sin(interval)) + center
-                    
-                    return [center, nextPoint]
+                ZStack {
+                    LineView(color: self.color) { () -> [CGPoint] in
+                        let center = geo.center()
+
+                        let interval = self.degreeInterval * Double(index + 1)
+                
+                        let nextPoint = center.findPointIn(radius: 150, radians: interval)
+                        
+                        return [center, nextPoint]
+                    }
+                    Text("\(self.components[index].subtitle)").position(geo.center().findPointIn(radius: 175, radians: self.degreeInterval*Double(index+1)))
                 }
             }
         }
+    }
+}
+
+
+
+extension CGPoint {
+    static func +(p1:CGPoint, p2:CGPoint) -> CGPoint {
+        return CGPoint(x: p1.x + p2.x, y: p1.y+p2.y)
+    }
+    func findPointIn(radius: Double, radians: Double) -> CGPoint{
+        return self + CGPoint(x: radius * cos(radians), y: radius * sin(radians))
+    }
+    
+}
+extension GeometryProxy{
+    func center() -> CGPoint{
+        return CGPoint(x: self.frame(in: .global).midX, y: self.frame(in: .global).midY)
     }
 }
 
@@ -55,11 +76,4 @@ struct AxisView_Previews: PreviewProvider {
             AxisComponent(subtitle: "C", scale: 0.5...60.7)
         )
     }
-}
-
-extension CGPoint {
-    static func +(p1:CGPoint, p2:CGPoint) -> CGPoint{
-        return CGPoint(x: p1.x + p2.x, y: p1.y+p2.y)
-    }
-    
 }
