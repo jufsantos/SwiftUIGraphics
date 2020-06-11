@@ -10,8 +10,16 @@ import Foundation
 import SwiftUI
 
 struct ScatterPlotView: View {
+    let viewModel: ScatterPlotViewModel
+    
+    init(data: [Plottable]) {
+        viewModel = ScatterPlotViewModel(data: data)
+    }
+    
     var body: some View {
-        GeometryReader { (proxy: GeometryProxy) in
+        let dotsPositions = viewModel.getDotsPositions()
+        
+        return GeometryReader { (proxy: GeometryProxy) in
             ZStack {
                 VStack {
                     Spacer()
@@ -19,7 +27,10 @@ struct ScatterPlotView: View {
                         Axis(lineWidth: 20)
                     }
                 }
-                Dot(at: CGPoint(x: proxy.size.width/2, y: proxy.size.height/2), size: 20)
+                
+                ForEach (dotsPositions.indices) { (index) in
+                    Dot(at: CGPoint(x: dotsPositions[index].x * proxy.size.width, y: dotsPositions[index].y * proxy.size.height), size: 20)
+                }
             }
         }
     }
@@ -65,12 +76,22 @@ struct Axis: View {
 struct ScatterPlotView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ScatterPlotView()
+            ScatterPlotView(data: [ScatterPlotData()])
                 .background(Color.blue)
                 .previewDevice("iPad Pro (9.7-inch)")
-            ScatterPlotView()
+            ScatterPlotView(data: [ScatterPlotData()])
                 .background(Color.blue)
                 .previewDevice("iPhone Xs")
         }
     }
+}
+
+struct ScatterPlotData: Plottable {
+    var xValue: CGFloat = 200
+    var yValue: CGFloat = 30
+}
+
+protocol Plottable {
+    var xValue: CGFloat {get set}
+    var yValue: CGFloat {get set}
 }
