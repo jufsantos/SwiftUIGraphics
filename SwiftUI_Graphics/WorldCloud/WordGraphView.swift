@@ -86,16 +86,21 @@ struct WordGraphView: View {
     private func generateContent(in g: GeometryProxy) -> some View {
         var width = CGFloat.zero
         var height = CGFloat.zero
+        var maxHeight = CGFloat.zero
 
         return ZStack(alignment: .topLeading) {
             ForEach(0..<palavras.count) { index in
                 self.item(for: self.palavras[index].word, size: self.palavras[index].size)
-                    .padding([.horizontal, .vertical], 4)
+                    .padding([.horizontal, .vertical], 0)
                     .alignmentGuide(.leading, computeValue: { d in
                         if (abs(width - d.width) > g.size.width)
                         {
                             width = 0
-                            height -= d.height
+                            height -= maxHeight
+                            maxHeight = .zero
+                        }
+                        if d.height > maxHeight {
+                            maxHeight = d.height
                         }
                         let result = width
                         if self.palavras[index].id == self.palavras.last?.id {
