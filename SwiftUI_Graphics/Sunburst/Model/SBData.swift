@@ -18,7 +18,7 @@ class SBData<T: Comparable>: Equatable {
     let id = UUID().uuidString
     weak var parent: SBData?
     var name: String
-    var value: T?
+    private(set) var value: T?
     private(set) var children: [SBData?] = []
 
     init(name: String = "", value: T? = nil) {
