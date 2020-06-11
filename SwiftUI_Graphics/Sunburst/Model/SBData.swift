@@ -18,8 +18,8 @@ class SBData<T: Numeric>: Equatable {
     let id = UUID().uuidString
     var name: String
     private(set) weak var parent: SBData?
-    private(set) var value: T
     private(set) var children: [SBData?] = []
+    private var value: T
 
     init(name: String = "", value: T = 0) {
         self.name = name
@@ -37,6 +37,29 @@ class SBData<T: Numeric>: Equatable {
     /// - Parameter value: The value that will be shown on the Sunburst Chart.
     func setValue(_ value: T) {
         self.value = value
+    }
+
+
+    /// Get the object's value.
+    /// If the object is a leaf, the value is the one assigned to it;
+    /// if it's not, the value is the sum of it children's value.
+    ///
+    /// Example:
+    ///
+    ///     let root = SBData<Double>(name: "root", value: 20)
+    ///     let documents = SBData<Double>(name: "Documents", value: 50)
+    ///     let desktop = SBData<Double>(name: "Desktop", value: 75)
+    ///     root.addChildren([documents, desktop])
+    ///
+    ///     root.getValue() // 75
+    ///     // The initial value (20) was ignored
+    ///     // because children were added into root.
+    ///
+    func getValue() -> T {
+        if children.isEmpty {
+            return value
+        }
+        return children.map({ ($0?.getValue() ?? T.zero) }).reduce(T.zero, +)
     }
 
 
