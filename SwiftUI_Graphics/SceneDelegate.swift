@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        let contentView = Heatmap(rowElements: ["A", "B", "C"], colElements: ["1", "2", "3"], data: [[5,6,7], [8,9,3], [5,6,7]], valuesRange: [0, 5, 9], colorRGB: "")
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
