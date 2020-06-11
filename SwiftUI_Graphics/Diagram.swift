@@ -10,7 +10,7 @@ import SwiftUI
 
 /// Created using objc-io tutorial on SwiftUI.
 /// Source: https://www.objc.io/blog/2019/12/16/drawing-trees/
-struct Diagram<A: Identifiable, V: View>: View {
+struct Diagram<A: Identifiable & Codable, V: View>: View {
     let tree: Tree<A>
     let node: (A) -> V
 

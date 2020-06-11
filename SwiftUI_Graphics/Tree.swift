@@ -8,19 +8,10 @@
 
 import Foundation
 
-/// Customization allowed:
-/// - Color
-/// - Content
-/// - Shape styles
-/// - Content-specific color
-/// - Level-specific color
-/// - Orientation (vertical, horizontal)
-/// - Line
-
 /// Representation of a Tree and, consequently, a Node also.
 /// Created using objc-io tutorial on SwiftUI.
 /// Source: https://www.objc.io/blog/2019/12/16/drawing-trees/
-struct Tree<A> {
+struct Tree<A: Codable> {
     /// The value of the Node.
     var value: A
 
