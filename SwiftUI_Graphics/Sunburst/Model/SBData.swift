@@ -14,14 +14,14 @@ import Foundation
 ///
 ///     let root = SBData<Double>(name: "root", value: 100)
 ///
-class SBData<T: Comparable>: Equatable {
+class SBData<T: Numeric>: Equatable {
     let id = UUID().uuidString
     var name: String
     private(set) weak var parent: SBData?
-    private(set) var value: T?
+    private(set) var value: T
     private(set) var children: [SBData?] = []
 
-    init(name: String = "", value: T? = nil) {
+    init(name: String = "", value: T = 0) {
         self.name = name
         self.value = value
     }
@@ -44,14 +44,16 @@ class SBData<T: Comparable>: Equatable {
     ///
     /// Example:
     ///
-    ///     let root = SBData<Double>(name: "root", value: 100)
+    ///     let root = SBData<Double>(name: "root")
     ///     let documents = SBData<Double>(name: "Documents", value: 50)
     ///     root.addChild(documents)
     ///
     /// - Parameter child: A SBData that will be added as a child of the object.
     func addChild(_ child: SBData) {
+        if children.isEmpty { self.value = 0 }
         child.parent = self
         children.append(child)
+        self.value += child.value
     }
 
 
@@ -59,7 +61,7 @@ class SBData<T: Comparable>: Equatable {
     ///
     /// Example:
     ///
-    ///     let root = SBData<Double>(name: "root", value: 100)
+    ///     let root = SBData<Double>(name: "root")
     ///     let documents = SBData<Double>(name: "Documents", value: 50)
     ///     let desktop = SBData<Double>(name: "Desktop", value: 50)
     ///     root.addChildren([documents, desktop])
@@ -76,7 +78,7 @@ class SBData<T: Comparable>: Equatable {
     ///
     /// Example:
     ///
-    ///     let root = SBData<Double>(name: "root", value: 100)
+    ///     let root = SBData<Double>(name: "root")
     ///     let documents = SBData<Double>(name: "Documents", value: 50)
     ///     root.addChild(documents)
     ///     root.removeChild(documents)
@@ -93,15 +95,17 @@ class SBData<T: Comparable>: Equatable {
     ///
     /// Example:
     ///
-    ///     let root = SBData<Double>(name: "root", value: 100)
+    ///     let root = SBData<Double>(name: "root")
     ///     let documents = SBData<Double>(name: "Documents", value: 50)
     ///     root.addChild(documents)
     ///     root.removeChild(at: 0)
     ///
     /// - Parameter child: The index of the child to be removed from the object.
     func removeChild(at index: Int) {
-        let child = children.remove(at: index)
-        child?.parent = nil
+        if let child = children.remove(at: index) {
+            child.parent = nil
+            self.value -= child.value
+        }
     }
 
 

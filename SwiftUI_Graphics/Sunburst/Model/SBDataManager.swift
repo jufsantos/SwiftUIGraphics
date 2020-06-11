@@ -15,7 +15,7 @@ import Foundation
 ///     let root = SBData<Double>(name: "root", value: 100)
 ///     let manager = SBDataManager<Double>(root: root)
 ///
-class SBDataManager<T: Comparable> {
+class SBDataManager<T: Numeric> {
     private(set) var currentRoot: SBData<T>
     private(set) var visibleLevels: Int
 
@@ -46,7 +46,7 @@ class SBDataManager<T: Comparable> {
     ///
     /// Example:
     ///
-    ///     let root = SBData<Double>(name: "root", value: 100)
+    ///     let root = SBData<Double>(name: "root")
     ///     let documents = SBData<Double>(name: "Documents", value: 50)
     ///     root.addChild(documents)
     ///
@@ -64,7 +64,7 @@ class SBDataManager<T: Comparable> {
     ///
     /// Example:
     ///
-    ///     let root = SBData<Double>(name: "root", value: 100)
+    ///     let root = SBData<Double>(name: "root")
     ///     let documents = SBData<Double>(name: "Documents", value: 50)
     ///     root.addChild(documents)
     ///
@@ -82,7 +82,7 @@ class SBDataManager<T: Comparable> {
     ///
     /// Example:
     ///
-    ///     let root = SBData<Double>(name: "root", value: 100)
+    ///     let root = SBData<Double>(name: "root")
     ///
     ///     let manager = SBDataManager<Double>(root: root)
     ///     if manager.isOriginalRoot() {
