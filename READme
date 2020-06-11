@@ -1,0 +1,7 @@
+Essencial Rules:
+
+- Each group has to fork this project and work on their personal repository;
+- Everything in the project has to be written in english;
+- Variables must follow this shape: <cornerRadius>;
+- Should be developed in MVVM model, because SwuifUI is based on it;
+- Links of groups`s research has to be in Dropbox`s "Wiki - Gráficos em SwiftUI" file.
