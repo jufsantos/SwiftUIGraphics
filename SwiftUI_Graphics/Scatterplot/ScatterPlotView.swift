@@ -11,12 +11,42 @@ import SwiftUI
 
 struct ScatterPlotView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Spacer()
+            ZStack() {
+                Axis(lineWidth: 2)
+            }
+        }
+    }
+}
+
+struct Axis: View {
+    var lineWidth: CGFloat = 1
+    var body: some View {
+        ZStack {
+            HStack {
+                Rectangle()
+                    .frame(width: 10, height: nil, alignment: .leading)
+                Spacer()
+            }
+            VStack {
+                Spacer()
+                Rectangle()
+                    .frame(width: nil, height: 10, alignment: .leading)
+            }
+        }
     }
 }
 
 struct ScatterPlotView_Previews: PreviewProvider {
     static var previews: some View {
-        ScatterPlotView()
+        Group {
+            ScatterPlotView()
+                .background(Color.blue)
+                .previewDevice("iPad Pro (9.7-inch)")
+            ScatterPlotView()
+                .background(Color.blue)
+                .previewDevice("iPhone Xs")
+        }
     }
 }
