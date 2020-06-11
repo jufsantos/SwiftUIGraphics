@@ -11,12 +11,35 @@ import SwiftUI
 
 struct ScatterPlotView: View {
     var body: some View {
-        VStack {
-            Spacer()
-            ZStack() {
-                Axis(lineWidth: 20)
+        GeometryReader { (proxy: GeometryProxy) in
+            ZStack {
+                VStack {
+                    Spacer()
+                    ZStack() {
+                        Axis(lineWidth: 20)
+                    }
+                }
+                Dot(at: CGPoint(x: proxy.size.width/2, y: proxy.size.height/2), size: 20)
             }
         }
+    }
+}
+
+struct Dot: View {
+    var size: CGFloat = 5
+    var origin: CGPoint = .zero
+
+    var body: some View {
+        Circle()
+        .path(in: CGRect(origin: origin, size: CGSize(width: size, height: size)))
+    }
+
+    init(at location: CGPoint, size: CGFloat?) {
+        if let size = size {
+            self.size = size
+        }
+        self.origin = CGPoint(x: location.x - self.size/2,
+                              y: location.y - self.size/2)
     }
 }
 
