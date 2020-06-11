@@ -12,65 +12,14 @@ import SwiftUI
 
 struct WordGraphView: View {
 
+    let text: String
     let controller = WordController()
-    var palavras: [WordModel] = [
-        WordModel(word: "5555555555"),
-        WordModel(word: "5555555555"),
-        WordModel(word: "2222222222"),
-        WordModel(word: "3333333333"),
-        WordModel(word: "4444444444"),
-        WordModel(word: "5555555555"),
-        WordModel(word: "1111111111"),
-        WordModel(word: "2222222222"),
-        WordModel(word: "3333333333"),
-        WordModel(word: "4444444444"),
-        WordModel(word: "5555555555"),
-        WordModel(word: "Felipe"),
-        WordModel(word: "Luiz"),
-        WordModel(word: "Tamara"),
-        WordModel(word: "Zewu"),
-        WordModel(word: "Lia")
-//        WordModel(word: "555555555"),
-//        WordModel(word: "55555555"),
-//        WordModel(word: "22222222"),
-//        WordModel(word: "33333333"),
-//        WordModel(word: "444444444"),
-//        WordModel(word: "555555"),
-//        WordModel(word: "1111111"),
-//        WordModel(word: "222222222"),
-//        WordModel(word: "3333333333"),
-//        WordModel(word: "444444"),
-//        WordModel(word: "55"),
-//        WordModel(word: "Flipe"),
-//        WordModel(word: "Liz"),
-//        WordModel(word: "Tmara"),
-//        WordModel(word: "Zwu"),
-//        WordModel(word: "ia"),
-//        WordModel(word: "1Felipe"),
-//        WordModel(word: "1Luiz"),
-//        WordModel(word: "1Tamara"),
-//        WordModel(word: "1Zewu"),
-//        WordModel(word: "1Lia"),
-//        WordModel(word: "1555555555"),
-//        WordModel(word: "155555555"),
-//        WordModel(word: "122222222"),
-//        WordModel(word: "133333333"),
-//        WordModel(word: "1444444444"),
-//        WordModel(word: "1555555"),
-//        WordModel(word: "11111111"),
-//        WordModel(word: "1222222222"),
-//        WordModel(word: "13333333333"),
-//        WordModel(word: "1444444"),
-//        WordModel(word: "155"),
-//        WordModel(word: "1Flipe"),
-//        WordModel(word: "1Liz"),
-//        WordModel(word: "1Tmara"),
-//        WordModel(word: "1Zwu"),
-//        WordModel(word: "1ia")
-    ]
+    var palavras: [WordModel] = []
     @State private var totalHeight = CGFloat.infinity
 
-    init() {
+    init(text: String) {
+        self.text = text
+        self.palavras = self.controller.parseText(text: text)
         self.palavras = self.controller.mapAndNormalizeWord(data: palavras, minSize: 20, maxSize: 50)
     }
 
@@ -139,7 +88,7 @@ struct WordGraphView: View {
 struct TesteView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone XR"], id: \.self) { deviceName in
-            WordGraphView()
+            WordGraphView(text: "Mindset Mindset Mindset Mindset Mindset Mindset Mindset Networking Networking Networking Players Players Players Players Believe Believe Believe Work Work Work Business Stonks Stonks Stonks Stonks Top Antenado MenteAberta Suce$$o Power Power Power Power cr14t1v1d4d3 Otimista Realizador Autodeterminado Autoconfiança Inovação Inovação Inovação Originalidade Diferente Diferencial Diferencial Diferencial Valores Propósito Propósito Propósito Propósito Progresso Progresso Progresso Progresso Metas Metas Metas Potencial Ideia Lucro Dinheiro Superávit Superávit Superávit Superávit Sonhos Sonhos  Falhar Sacrifícios Fluxo Conquista Aventura Oportunidades Persistência Disciplina Inspiração Energia Ação Liderança Liderança Liderança Liderança Resultados Resultados Resultados Crescimento Performance FOCO FOCO FOCO FOCO FOCO Growth Growth Growth Growth Atitudes Atitudes Valores Orgulho Moral Produtividade Produtividade Produtividade Produtividade Produtividade Produtividade Equipe FalheRápido Feedback Obstáculos Garra Garra Perspectivas Desafios Desafios Confiança Confiança Goal Impacto Impacto Impacto")
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
