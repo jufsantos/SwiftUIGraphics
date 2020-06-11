@@ -68,24 +68,67 @@ struct WordGraphView: View {
 //        WordModel(word: "1Zwu"),
 //        WordModel(word: "1ia")
     ]
+    @State private var totalHeight = CGFloat.infinity
 
     init() {
         self.palavras = self.controller.mapAndNormalizeWord(data: palavras, minSize: 20, maxSize: 50)
     }
 
     var body: some View {
-        VStack(alignment: .center) {
-            ForEach(0..<palavras.count) { index in
-                WordView(word: self.palavras[index].word, size: self.palavras[index].size).fixedSize()
-//                Spacer().frame(width: CGFloat(Int.random(in: 0...200)))
+        VStack {
+            GeometryReader { geometry in
+                self.generateContent(in: geometry)
             }
-        }.fixedSize(horizontal: true, vertical: false)
-            .frame(width: UIScreen.main.bounds.width,
-                   height: UIScreen.main.bounds.height,
-                   alignment: .center)
-            .scaledToFill()
+        }
+        .frame(maxHeight: totalHeight)
     }
 
+    private func generateContent(in g: GeometryProxy) -> some View {
+        var width = CGFloat.zero
+        var height = CGFloat.zero
+
+        return ZStack(alignment: .topLeading) {
+            ForEach(0..<palavras.count) { index in
+                self.item(for: self.palavras[index].word, size: self.palavras[index].size)
+                    .padding([.horizontal, .vertical], 4)
+                    .alignmentGuide(.leading, computeValue: { d in
+                        if (abs(width - d.width) > g.size.width)
+                        {
+                            width = 0
+                            height -= d.height
+                        }
+                        let result = width
+                        if self.palavras[index].id == self.palavras.last?.id {
+                            width = 0 //last item
+                        } else {
+                            width -= d.width
+                        }
+                        return result
+                    })
+                    .alignmentGuide(.top, computeValue: {d in
+                        let result = height
+                        if self.palavras[index].id == self.palavras.last?.id {
+                            height = 0 // last item
+                        }
+                        return result
+                    })
+            }
+        }.background(viewHeightReader($totalHeight))
+    }
+
+    private func item(for text: String, size: Float) -> some View {
+        WordView(word: text, size: size).fixedSize()
+    }
+
+    private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
+        return GeometryReader { geometry -> Color in
+            let rect = geometry.frame(in: .local)
+            DispatchQueue.main.async {
+                binding.wrappedValue = rect.size.height
+            }
+            return .clear
+        }
+    }
 }
 
 struct TesteView_Previews: PreviewProvider {
