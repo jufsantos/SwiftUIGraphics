@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02E1AFA424929C9A0073DF1E /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1AFA324929C9A0073DF1E /* LineView.swift */; };
 		25895DB8249172D1006C41A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25895DB7249172D1006C41A5 /* AppDelegate.swift */; };
 		25895DBA249172D1006C41A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25895DB9249172D1006C41A5 /* SceneDelegate.swift */; };
 		25895DBC249172D1006C41A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25895DBB249172D1006C41A5 /* ContentView.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02E1AFA324929C9A0073DF1E /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		25895DB4249172D1006C41A5 /* SwiftUI_Graphics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Graphics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25895DB7249172D1006C41A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25895DB9249172D1006C41A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02E1AFA224929C860073DF1E /* Radar */ = {
+			isa = PBXGroup;
+			children = (
+				02E1AFA324929C9A0073DF1E /* LineView.swift */,
+			);
+			path = Radar;
+			sourceTree = "<group>";
+		};
 		25895DAB249172D0006C41A5 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +66,8 @@
 		25895DB6249172D1006C41A5 /* SwiftUI_Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				25895DD0249175BA006C41A5 /* Heatmap */,
-				25895DCF249175AF006C41A5 /* Radar */,
-				25895DCE2491759D006C41A5 /* Scatterplot */,
-				25895DCD24917581006C41A5 /* Sunburst */,
-				25895DCC24917493006C41A5 /* TreeMap */,
-				25895DCB24917476006C41A5 /* WorldCloud */,
 				25895DB7249172D1006C41A5 /* AppDelegate.swift */,
+				02E1AFA224929C860073DF1E /* Radar */,
 				25895DB9249172D1006C41A5 /* SceneDelegate.swift */,
 				25895DBB249172D1006C41A5 /* ContentView.swift */,
 				25895DBD249172D3006C41A5 /* Assets.xcassets */,
@@ -79,48 +84,6 @@
 				25895DC0249172D3006C41A5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		25895DCB24917476006C41A5 /* WorldCloud */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = WorldCloud;
-			sourceTree = "<group>";
-		};
-		25895DCC24917493006C41A5 /* TreeMap */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TreeMap;
-			sourceTree = "<group>";
-		};
-		25895DCD24917581006C41A5 /* Sunburst */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sunburst;
-			sourceTree = "<group>";
-		};
-		25895DCE2491759D006C41A5 /* Scatterplot */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Scatterplot;
-			sourceTree = "<group>";
-		};
-		25895DCF249175AF006C41A5 /* Radar */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Radar;
-			sourceTree = "<group>";
-		};
-		25895DD0249175BA006C41A5 /* Heatmap */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Heatmap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E1AFA424929C9A0073DF1E /* LineView.swift in Sources */,
 				25895DB8249172D1006C41A5 /* AppDelegate.swift in Sources */,
 				25895DBA249172D1006C41A5 /* SceneDelegate.swift in Sources */,
 				25895DBC249172D1006C41A5 /* ContentView.swift in Sources */,
