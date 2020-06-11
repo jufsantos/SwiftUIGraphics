@@ -14,25 +14,26 @@ struct ScatterPlotView: View {
         VStack {
             Spacer()
             ZStack() {
-                Axis(lineWidth: 2)
+                Axis(lineWidth: 20)
             }
         }
     }
 }
 
 struct Axis: View {
+    #warning("ZStack does not reach top of the screen")
     var lineWidth: CGFloat = 1
     var body: some View {
         ZStack {
             HStack {
                 Rectangle()
-                    .frame(width: 10, height: nil, alignment: .leading)
+                    .frame(width: lineWidth, height: nil, alignment: .leading)
                 Spacer()
             }
             VStack {
                 Spacer()
                 Rectangle()
-                    .frame(width: nil, height: 10, alignment: .leading)
+                    .frame(width: nil, height: lineWidth, alignment: .leading)
             }
         }
     }
