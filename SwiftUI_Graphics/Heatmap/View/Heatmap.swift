@@ -19,13 +19,21 @@ struct Heatmap: View {
     }
     
     var body: some View {
-        HStack {
-            ForEach(0..<viewModel.rowElements.count) {row in
-                VStack {
-                    ForEach(0..<self.viewModel.colElements.count) { col in
-                        self.setColorRectangle(row: row, col: col)
-//                        self.colorVariation()
+        HStack(spacing: 0) {
+            ForEach(0..<viewModel.colElements.count) { col in
+                VStack(alignment: .trailing, spacing: 0) {
+                    ForEach(0..<self.viewModel.rowElements.count) { row in
+                        HStack {
+                            if col == 0 {
+                                Text(self.viewModel.getRowName(row: row)).multilineTextAlignment(.trailing).frame(width: CGFloat(self.viewModel.size))
+                            }
+                            self.setColorRectangle(row: row, col: col)
+                            
+                            //                        self.colorVariation()
+                        }
                     }
+                    Text(self.viewModel.getColumnName(col: col)).frame(width: CGFloat(self.viewModel.size))
+                        
                 }
             }
         }
@@ -36,12 +44,12 @@ extension Heatmap {
     func setColorRectangle(row: Int, col: Int) -> some View {
         let value = self.viewModel.getDataValue(row: row, col: col)
         let alpha: Double = Double(viewModel.colorVariation(value: value))
-        return Rectangle().foregroundColor(Color(#colorLiteral(red: 0.1252194643, green: 0, blue: 0.732506752, alpha: 1)).opacity(alpha)).frame(width: 50.0, height: 50.0)
+        return Rectangle().foregroundColor(Color(#colorLiteral(red: 0.1252194643, green: 0, blue: 0.732506752, alpha: 1)).opacity(alpha)).frame(width: CGFloat(viewModel.size), height: CGFloat(viewModel.size)).border(Color.black, width: CGFloat(self.viewModel.borderWidth))
     }
 }
 
 struct Heatmap_Previews: PreviewProvider {
     static var previews: some View {
-        Heatmap(rowElements: ["A", "B", "C"], colElements: ["1", "2", "3"], data: [[5,6,7], [8,9,0], [5,6,7]], valuesRange: [3, 5, 9], colorRGB: "")
+        Heatmap(rowElements: ["AFEFF", "A", "A"], colElements: ["0", "2", "3"], data: [[5,6,7], [8,9,4], [5,6,7]], valuesRange: [3, 5, 9], colorRGB: "")
     }
 }

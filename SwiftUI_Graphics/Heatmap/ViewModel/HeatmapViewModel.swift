@@ -15,6 +15,8 @@ struct HeatmapViewModel {
     let data: [[Float]]
     let valuesRange: [Float]
     let colorRGB: String
+    let size: Float = 50
+    let borderWidth: Float = 0
     
     func checkElementQntd() {
         let totalElements = rowElements.count * colElements.count
@@ -34,5 +36,13 @@ struct HeatmapViewModel {
     
     func getDataValue(row: Int, col: Int) -> Float {
         return data[row][col]
+    }
+    
+    func getColumnName(col: Int) -> String {
+        return colElements[col]
+    }
+    
+    func getRowName(row: Int) -> String {
+        return rowElements[row]
     }
 }
