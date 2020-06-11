@@ -16,11 +16,11 @@ import Foundation
 ///     let manager = SBDataManager<Double>(root: root)
 ///
 class SBDataManager<T: Comparable> {
-    private(set) var root: SBData<T>
+    private(set) var currentRoot: SBData<T>
     private(set) var visibleLevels: Int
 
     init(root: SBData<T>, visibleLevels: Int = 3) {
-        self.root = root
+        self.currentRoot = root
         self.visibleLevels = visibleLevels
     }
 
@@ -56,7 +56,7 @@ class SBDataManager<T: Comparable> {
     /// - Parameter child: Child to be used as the new root.
     func goFurther(basedOn child: SBData<T>) {
         guard !child.children.isEmpty else { return }
-        self.root = child
+        self.currentRoot = child
     }
 
 
@@ -73,7 +73,25 @@ class SBDataManager<T: Comparable> {
     ///     manager.goBack()
     ///
     func goBack() {
-        guard let parent = self.root.parent else { return }
-        self.root = parent
+        guard let parent = self.currentRoot.parent else { return }
+        self.currentRoot = parent
+    }
+
+
+    /// Check if the current root is the original root.
+    ///
+    /// Example:
+    ///
+    ///     let root = SBData<Double>(name: "root", value: 100)
+    ///
+    ///     let manager = SBDataManager<Double>(root: root)
+    ///     if manager.isOriginalRoot() {
+    ///         print("The current root is the original root")
+    ///     } else {
+    ///         print("The current root isn't the original root")
+    ///     }
+    ///
+    func isOriginalRoot() -> Bool {
+        return currentRoot.parent == nil
     }
 }
