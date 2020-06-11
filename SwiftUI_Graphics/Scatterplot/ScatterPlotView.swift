@@ -44,7 +44,6 @@ struct Dot: View {
 }
 
 struct Axis: View {
-    #warning("ZStack does not reach top of the screen")
     var lineWidth: CGFloat = 1
     var body: some View {
         ZStack {
@@ -59,6 +58,7 @@ struct Axis: View {
                     .frame(width: nil, height: lineWidth, alignment: .leading)
             }
         }
+        .padding([.bottom,.leading])
     }
 }
 
