@@ -16,8 +16,8 @@ import Foundation
 ///
 class SBData<T: Comparable>: Equatable {
     let id = UUID().uuidString
-    weak var parent: SBData?
     var name: String
+    private(set) weak var parent: SBData?
     private(set) var value: T?
     private(set) var children: [SBData?] = []
 
