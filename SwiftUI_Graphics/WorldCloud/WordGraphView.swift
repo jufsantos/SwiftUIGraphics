@@ -21,7 +21,7 @@ struct WordGraphView: View {
 
     @State private var totalHeight = CGFloat.infinity
 
-    init(text: [String], fontName: String = "", minimumFontSize: Float = 20, maximumFontSize: Float = 50, colors: [Color] = []) {
+    init(text: [String], fontName: String = "", minimumFontSize: Float = 20, maximumFontSize: Float = 50, colorSet: [Color] = []) {
         self.minSize = minimumFontSize
         self.maxSize = maximumFontSize
         
@@ -37,10 +37,10 @@ struct WordGraphView: View {
             maxSize: self.maxSize
         )
         
-        if colors.isEmpty {
+        if colorSet.isEmpty {
             self.colors = [Color(#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)), Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)), Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)), Color(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1))]
         } else {
-            self.colors = colors
+            self.colors = colorSet
         }
     }
 
@@ -104,6 +104,25 @@ struct WordGraphView: View {
             return .clear
         }
     }
+    
+    public func colorSet(_ colorSet: [Color]) -> Self {
+        var copy = self
+        copy.colors = colorSet
+        return copy
+    }
+    
+    public func fontName(_ fontName: String) -> Self {
+        var copy = self
+        copy.fontName = fontName
+        return copy
+    }
+    
+    public func fontSize(minimum: Float = 20, maximum: Float = 50) -> Self {
+        var copy = self
+        copy.minSize = minimum
+        copy.maxSize = maximum
+        return copy
+    }
 }
 
 struct TesteView_Previews: PreviewProvider {
@@ -125,6 +144,9 @@ struct TesteView_Previews: PreviewProvider {
                                  "Tamara",
                                  "Zewu",
                                  "Lia"])
+                .colorSet([.blue,.red])
+                .fontName("Courier")
+                .fontSize(minimum: 10)
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
