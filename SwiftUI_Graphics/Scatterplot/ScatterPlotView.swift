@@ -73,28 +73,59 @@ struct Axis: View {
                     Spacer()
                     Rectangle()
                         
-                        .frame(width: 8, height: 20, alignment: .leading)
+                        .frame(width: lineWidth/1.5, height: lineWidth * 2, alignment: .leading)
                         .foregroundColor(.red)
                     Spacer()
                     
                     Rectangle()
                         
-                        .frame(width: 8, height: 20, alignment: .leading)
+                        .frame(width: lineWidth/1.5, height: lineWidth * 2, alignment: .leading)
                         .foregroundColor(.red)
                     
                     Spacer()
                     Rectangle()
                         
-                        .frame(width: 8, height: 20, alignment: .leading)
+                        .frame(width: lineWidth/1.5, height: lineWidth * 2, alignment: .leading)
                         .foregroundColor(.red)
                     Spacer()
                     
                     Rectangle()
                         
-                        .frame(width: 8, height: 20, alignment: .leading)
+                        .frame(width: lineWidth/1.5, height: lineWidth * 2, alignment: .leading)
                         .foregroundColor(.red)
                     Spacer()
                 }
+            }
+            HStack {
+                VStack {
+                    
+                    Spacer()
+                    Rectangle()
+                        
+                        .frame(width: lineWidth * 2, height: lineWidth/1.5, alignment: .leading)
+                        .foregroundColor(.red)
+                    Spacer()
+                    
+                    Rectangle()
+                        
+                        .frame(width: lineWidth * 2, height: lineWidth/1.5, alignment: .leading)
+                        .foregroundColor(.red)
+                    
+                    Spacer()
+                    Rectangle()
+                        
+                        .frame(width: lineWidth * 2, height: lineWidth/1.5, alignment: .leading)
+                        .foregroundColor(.red)
+                    Spacer()
+                    
+                    Rectangle()
+                        
+                        .frame(width:lineWidth * 2, height: lineWidth/1.5, alignment: .leading)
+                        .foregroundColor(.red)
+                    Spacer()
+                    Spacer().frame(width: nil, height: lineWidth)
+                }
+                Spacer()
             }
         }
     }
