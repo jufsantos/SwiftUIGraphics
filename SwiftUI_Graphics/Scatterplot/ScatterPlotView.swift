@@ -24,10 +24,12 @@ struct ScatterPlotView: View {
                         .fill()
                         .foregroundColor(Color.red)
             }.padding(10)
+
         }
         .background(Axis(lineWidth: 10).foregroundColor(.orange))
     }
 }
+
 
 struct DotShape: Shape {
     var locations: [CGPoint]
@@ -48,6 +50,8 @@ struct DotShape: Shape {
 
 struct Axis: View {
     var lineWidth: CGFloat = 1
+    let spaceData: CGFloat = 50
+    
     var body: some View {
         ZStack {
             HStack {
@@ -55,10 +59,42 @@ struct Axis: View {
                     .frame(width: lineWidth, height: nil, alignment: .leading)
                 Spacer()
             }
+            
             VStack {
                 Spacer()
                 Rectangle()
                     .frame(width: nil, height: lineWidth, alignment: .leading)
+            }
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer().frame(width: lineWidth, height: nil)
+                    Spacer()
+                    Rectangle()
+                        
+                        .frame(width: 8, height: 20, alignment: .leading)
+                        .foregroundColor(.red)
+                    Spacer()
+                    
+                    Rectangle()
+                        
+                        .frame(width: 8, height: 20, alignment: .leading)
+                        .foregroundColor(.red)
+                    
+                    Spacer()
+                    Rectangle()
+                        
+                        .frame(width: 8, height: 20, alignment: .leading)
+                        .foregroundColor(.red)
+                    Spacer()
+                    
+                    Rectangle()
+                        
+                        .frame(width: 8, height: 20, alignment: .leading)
+                        .foregroundColor(.red)
+                    Spacer()
+                }
             }
         }
     }

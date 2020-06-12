@@ -16,8 +16,8 @@ class ScatterPlotViewModel {
     
     init(data: [Plottable]) {
         self.data = data
-        maxX = (data.map{$0.xValue}.max() ?? 1) * 2
-        maxY = (data.map{$0.yValue}.max() ?? 1) * 2
+        maxX = (data.map{$0.xValue}.max() ?? 1) * 1.1
+        maxY = (data.map{$0.yValue}.max() ?? 1) * 1.1
     }
     
     func getDotsPositions() -> [CGPoint] {
