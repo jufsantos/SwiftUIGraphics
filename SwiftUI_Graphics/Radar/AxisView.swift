@@ -30,14 +30,14 @@ struct AxisView: View {
     
     var body: some View {
         
-        GeometryReader { geo in
+        GeometryReader { geoProxy in
             
             ForEach(0..<self.components.count) { (index) in
                 
                 ZStack {
                     
                     LineView(color: self.color) { () -> [CGPoint] in
-                        let center = geo.center()
+                        let center = geoProxy.center()
 
                         let interval = self.degreeInterval * Double(index + 1)
                 
@@ -45,14 +45,27 @@ struct AxisView: View {
                         
                         return [center, nextPoint]
                     }
-                    
-                    Text("\(self.components[index].subtitle)").position(geo.center().findPointIn(radius: 175, radians: self.degreeInterval*Double(index + 1)))
+
+                    Text("\(self.components[index].subtitle)")
+                        .modifier(SubtitleInGeoProxyModifier(geoProxy, radians: self.degreeInterval*Double(index+1)))
                 }
             }
         }
     }
 }
 
+struct SubtitleInGeoProxyModifier: ViewModifier {
+    var geoProxy: GeometryProxy
+    var radians: Double
+    init(_ geoProxy: GeometryProxy, radians: Double) {
+        self.geoProxy = geoProxy
+        self.radians = radians
+    }
+    func body(content: Content) -> some View{
+        content.position(geoProxy.center().findPointIn(radius: 175, radians: self.radians))
+    }
+    
+}
 
 
 extension CGPoint {
