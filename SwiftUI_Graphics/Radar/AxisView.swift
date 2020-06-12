@@ -35,6 +35,7 @@ struct AxisView: View {
             ForEach(0..<self.components.count) { (index) in
                 
                 ZStack {
+                    
                     LineView(color: self.color) { () -> [CGPoint] in
                         let center = geo.center()
 
@@ -44,6 +45,7 @@ struct AxisView: View {
                         
                         return [center, nextPoint]
                     }
+                    
                     Text("\(self.components[index].subtitle)").position(geo.center().findPointIn(radius: 175, radians: self.degreeInterval*Double(index+1)))
                 }
             }
@@ -62,8 +64,8 @@ extension CGPoint {
     }
     
 }
-extension GeometryProxy{
-    func center() -> CGPoint{
+extension GeometryProxy {
+    func center() -> CGPoint {
         return CGPoint(x: self.frame(in: .global).midX, y: self.frame(in: .global).midY)
     }
 }
