@@ -8,7 +8,10 @@
 
 import Foundation
 
-final class WordController {
+/**
+ 
+ */
+final class TextParser {
 
     /**
     *Parse a generic text to WordModel for use in WordGraph*

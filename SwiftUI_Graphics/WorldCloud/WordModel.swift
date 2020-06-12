@@ -8,6 +8,9 @@
 
 import Foundation
 
+/**
+ 
+ */
 class WordModel: Identifiable {
     let id = UUID()
 

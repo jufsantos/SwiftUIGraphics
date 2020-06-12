@@ -8,6 +8,21 @@
 
 import SwiftUI
 
+/**
+ A view that displays text with a certain font and color.
+ 
+ You can set all of the structs variables on its initializazer, as shown in the example below:
+ 
+ ```
+ WordView(
+     word: "Text",
+     size: 20.0,
+     colors: [.red, .blue, ,green],
+     fontName: ""
+ )
+ ```
+ In the example, ```fontName``` is set as an empty string. That means the text will be displayed with the system's default font.
+ */
 struct WordView: View {
     let word: String
     let size: Float
