@@ -8,17 +8,21 @@
 
 import Foundation
 
-final class WordController {
+/**
+ The parser that reads and interprets a text received as String.
+ */
+final class TextParser {
 
     /**
-    *Parse a generic text to WordModel for use in WordGraph*
-    - parameter text: String - text to convert
+    Parse a generic text to a WordModel array
+     
+    - parameter text: A String that contains the text that will be converted
     - version: 1.0
-    - returns: Vector of data parsed to WordModel. See WordModel Structure
+    - returns: Array of data parsed as WordModel. See WordModel Structure for more info.
     */
     public func parseText(text: String) -> [WordModel] {
         var result: [WordModel] = []
-        var splited = text.replacingOccurrences(of: "[|@#$%^&*|:()-,;!{}+'\']", with: "", options: .regularExpression).split(separator: " ")
+        let splited = text.replacingOccurrences(of: "[|@#$%^&*|:()-,;!{}+'\']", with: "", options: .regularExpression).split(separator: " ")
 
         for item in splited {
             result.append(WordModel(word: item.description))
@@ -28,11 +32,14 @@ final class WordController {
     }
 
     /**
-    *Data processing (font and repeated words)*
-    - parameter data: [WordModel] - array of word with the values. See WordModel Structure
-    - parameter isUppercase: Bool - set words to uppercase, false by default
+    Processes data, setting font size and recognizing repeated words.
+    - parameters:
+        - data: An array of WordModel with the values to be processed. See WordModel Structure for more info.
+        - minSize: A Float that represents the minimum size possible for font size.
+        - maxSize: A Float that represents the maximum size possible for font size.
+        - isUppercase: A Boolean that sets words to uppercase when true. **This is an optional parameter**. If you don't give it a value, it will receive false as its default value.
     - version: 1.0
-    - returns: Vector of treated data with with normalized font and reduced repeated words
+    - returns: An array of treated data as WordModel with normalized font and reduced repeated words.
     */
     public func mapAndNormalizeWord(data: [WordModel], minSize: Float, maxSize: Float, isUppercase: Bool = false) -> [WordModel] {
         var result: [WordModel] = []
@@ -44,26 +51,17 @@ final class WordController {
     }
 
     /**
-    *Data processing (repeated words)
-    - parameter data: [WordModel] - array of word with the values. See WordModel Structure
-    - parameter isUppercase: Bool - set words to uppercase
+    Processes data to avoid repeated words.
+    - parameters:
+        - data: An array of WordModel with the values to be processed. See WordModel Structure for more info.
+        - isUppercase: A Boolean that sets words to uppercase when true.
     - version: 1.0
-    - returns: Vector of treated data with reduced repeated words
+    - returns: An array of treated data as WordModel with reduced repeated words.
     */
     private func mapWord(data: [WordModel], isUppercase: Bool) -> [WordModel] {
         var dataAux: [String: Int] = [:]
         var result: [WordModel] = []
 
-        /*
-            // MARK: Use the way below instead of this way, because of the performance point of view in comparing many IF'S
-
-            for item in data {
-                dataAux[isUppercase ? item.word.uppercased() : item.word] = (dataAux[isUppercase ? item.word.uppercased() : item.word] ?? 0) + 1
-            }
-        */
-
-        // Checks the same words and increases their values
-        // Verify if is uppercase
         if isUppercase {
             for item in data {
                 dataAux[item.word.uppercased()] = (dataAux[item.word.uppercased()] ?? 0) + 1
@@ -74,7 +72,6 @@ final class WordController {
             }
         }
 
-        // Make parse the auxData to return type
         for (word, value) in dataAux {
             result.append(WordModel(word: word, value: value))
         }
@@ -83,12 +80,13 @@ final class WordController {
     }
 
     /**
-    *Data processing (font size)
-    - parameter data: [WordModel] - array of word with the values. See WordModel Structure
-    - parameter minSize: Float - value of min size to normalize font
-    - parameter maxSize: Float - value of max size to normalize font
+    Processes data to set the font size.
+    - parameters:
+        - data: An array of WordModel with the values to be processed. See WordModel Structure for more info.
+        - minSize: A Float that represents the minimum size possible for font size.
+        - maxSize: A Float that represents the maximum size possible for font size.
     - version: 1.0
-    - returns: Vector of treated data with font size normalized in each word
+    - returns: An array of treated data as WordModel with normalized font size in each word.
     */
     private func normalizeWordFont(data: [WordModel], minSize: Float, maxSize: Float) -> [WordModel] {
         // Lowest word value
@@ -103,7 +101,7 @@ final class WordController {
 
         // Normalizes the font size by the value of occurrences of the word
         if let _ = minValue?.value, let maxValue = maxValue?.value {
-            data.map {
+            let _ = data.map {
                 let value = $0.value
                 $0.size = ((Float(value) * maxSize) / Float(maxValue)) < minSize ? minSize : (Float(value) * maxSize) / Float(maxValue)
             }
