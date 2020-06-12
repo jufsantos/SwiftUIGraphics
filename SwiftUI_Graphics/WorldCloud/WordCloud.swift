@@ -8,11 +8,12 @@
 
 import SwiftUI
 
-// https://medium.com/flawless-app-stories/mvvm-in-swiftui-8a2e9cc2964a
-
+/**
+ 
+ */
 struct WordCloud: View {
 
-    private let controller = WordController()
+    private let controller = TextParser()
     private var words = [WordModel]()
     private var minSize: Float
     private var maxSize: Float
@@ -21,6 +22,9 @@ struct WordCloud: View {
 
     @State private var totalHeight = CGFloat.infinity
 
+    /**
+     
+     */
     init(text: String, fontName: String = "", minimumFontSize: Float = 20, maximumFontSize: Float = 50, colorSet: [Color] = []) {
         self.minSize = minimumFontSize
         self.maxSize = maximumFontSize
@@ -51,6 +55,9 @@ struct WordCloud: View {
         .frame(maxHeight: totalHeight)
     }
 
+    /**
+     
+     */
     private func generateContent(in g: GeometryProxy) -> some View {
         var width = CGFloat.zero
         var height = CGFloat.zero
@@ -89,10 +96,16 @@ struct WordCloud: View {
         }.background(viewHeightReader($totalHeight))
     }
 
+    /**
+     
+     */
     private func item(for text: String, size: Float) -> some View {
         WordView(word: text, size: size, colors: self.colors, fontName: fontName).fixedSize()
     }
 
+    /**
+     
+     */
     private func viewHeightReader(_ binding: Binding<CGFloat>) -> some View {
         return GeometryReader { geometry -> Color in
             let rect = geometry.frame(in: .local)
@@ -103,18 +116,27 @@ struct WordCloud: View {
         }
     }
     
+    /**
+     
+     */
     public func colorSet(_ colorSet: [Color]) -> Self {
         var copy = self
         copy.colors = colorSet
         return copy
     }
     
+    /**
+     
+     */
     public func fontName(_ fontName: String) -> Self {
         var copy = self
         copy.fontName = fontName
         return copy
     }
     
+    /**
+     
+     */
     public func fontSize(minimum: Float = 20, maximum: Float = 50) -> Self {
         var copy = self
         copy.minSize = minimum
