@@ -9,7 +9,24 @@
 import Foundation
 
 final class WordController {
-    
+
+    /**
+    *Parse a generic text to WordModel for use in WordGraph*
+    - parameter text: String - text to convert
+    - version: 1.0
+    - returns: Vector of data parsed to WordModel. See WordModel Structure
+    */
+    public func parseText(text: String) -> [WordModel] {
+        var result: [WordModel] = []
+        var splited = text.replacingOccurrences(of: "[|@#$%^&*|:()-,;!{}+'\']", with: "", options: .regularExpression).split(separator: " ")
+
+        for item in splited {
+            result.append(WordModel(word: item.description))
+        }
+
+        return result
+    }
+
     /**
     *Data processing (font and repeated words)*
     - parameter data: [WordModel] - array of word with the values. See WordModel Structure

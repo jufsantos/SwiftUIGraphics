@@ -21,15 +21,11 @@ struct WordGraphView: View {
 
     @State private var totalHeight = CGFloat.infinity
 
-    init(text: [String], fontName: String = "", minimumFontSize: Float = 20, maximumFontSize: Float = 50, colorSet: [Color] = []) {
+    init(text: String, fontName: String = "", minimumFontSize: Float = 20, maximumFontSize: Float = 50, colorSet: [Color] = []) {
         self.minSize = minimumFontSize
         self.maxSize = maximumFontSize
         
-        let models = text.map {
-            WordModel(word: $0)
-        }
-        
-        self.fontName = fontName
+        let models = self.controller.parseText(text: text)
         
         self.words = self.controller.mapAndNormalizeWord(
             data: models,
@@ -37,13 +33,15 @@ struct WordGraphView: View {
             maxSize: self.maxSize
         )
         
+        self.fontName = fontName
+        
         if colorSet.isEmpty {
             self.colors = [Color(#colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)), Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)), Color(#colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)), Color(#colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1))]
         } else {
             self.colors = colorSet
         }
     }
-
+    
     var body: some View {
         VStack {
             GeometryReader { geometry in
@@ -128,25 +126,9 @@ struct WordGraphView: View {
 struct TesteView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone XR"], id: \.self) { deviceName in
-            WordGraphView(text: ["5555555555",
-                                 "5555555555",
-                                 "2222222222",
-                                 "3333333333",
-                                 "4444444444",
-                                 "5555555555",
-                                 "1111111111",
-                                 "2222222222",
-                                 "3333333333",
-                                 "4444444444",
-                                 "5555555555",
-                                 "Felipe",
-                                 "Luiz",
-                                 "Tamara",
-                                 "Zewu",
-                                 "Lia"])
-                .colorSet([.blue,.red])
-                .fontName("Courier")
-                .fontSize(minimum: 10)
+            WordGraphView(text: "Mindset Mindset Mindset Mindset Mindset Mindset Mindset Networking Networking Networking Players Players Players Players Believe Believe Believe Work Work Work Business Stonks Stonks Stonks Stonks Top Antenado MenteAberta Suce$$o Power Power Power Power cr14t1v1d4d3 Otimista Realizador Autodeterminado Autoconfiança Inovação Inovação Inovação Originalidade Diferente Diferencial Diferencial Diferencial Valores Propósito Propósito Propósito Propósito Progresso Progresso Progresso Progresso Metas Metas Metas Potencial Ideia Lucro Dinheiro Superávit Superávit Superávit Superávit Sonhos Sonhos  Falhar Sacrifícios Fluxo Conquista Aventura Oportunidades Persistência Disciplina Inspiração Energia Ação Liderança Liderança Liderança Liderança Resultados Resultados Resultados Crescimento Performance FOCO FOCO FOCO FOCO FOCO Growth Growth Growth Growth Atitudes Atitudes Valores Orgulho Moral Produtividade Produtividade Produtividade Produtividade Produtividade Produtividade Equipe FalheRápido Feedback Obstáculos Garra Garra Perspectivas Desafios Desafios Confiança Confiança Goal Impacto Impacto Impacto")
+            .colorSet([.blue,.red])
+            .fontName("Courier")
                 .previewDevice(PreviewDevice(rawValue: deviceName))
                 .previewDisplayName(deviceName)
         }
