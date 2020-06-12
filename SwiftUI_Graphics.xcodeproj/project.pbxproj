@@ -13,6 +13,8 @@
 		25895DBE249172D3006C41A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25895DBD249172D3006C41A5 /* Assets.xcassets */; };
 		25895DC1249172D3006C41A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25895DC0249172D3006C41A5 /* Preview Assets.xcassets */; };
 		25895DC4249172D3006C41A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25895DC2249172D3006C41A5 /* LaunchScreen.storyboard */; };
+		B6B146B12492D101003D8879 /* SBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B146AF2492D101003D8879 /* SBDataManager.swift */; };
+		B6B146B22492D101003D8879 /* SBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B146B02492D101003D8879 /* SBData.swift */; };
 		CB95FC672492A23000C97F82 /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95FC632492A22F00C97F82 /* WordModel.swift */; };
 		CB95FC682492A23000C97F82 /* WordCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95FC642492A22F00C97F82 /* WordCloud.swift */; };
 		CB95FC692492A23000C97F82 /* TextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95FC652492A22F00C97F82 /* TextParser.swift */; };
@@ -28,6 +30,8 @@
 		25895DC0249172D3006C41A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		25895DC3249172D3006C41A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25895DC5249172D3006C41A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6B146AF2492D101003D8879 /* SBDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDataManager.swift; sourceTree = "<group>"; };
+		B6B146B02492D101003D8879 /* SBData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBData.swift; sourceTree = "<group>"; };
 		CB95FC632492A22F00C97F82 /* WordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
 		CB95FC642492A22F00C97F82 /* WordCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCloud.swift; sourceTree = "<group>"; };
 		CB95FC652492A22F00C97F82 /* TextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextParser.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 		25895DCD24917581006C41A5 /* Sunburst */ = {
 			isa = PBXGroup;
 			children = (
+				B6B146AE2492D0D6003D8879 /* Model */,
 			);
 			path = Sunburst;
 			sourceTree = "<group>";
@@ -133,6 +138,15 @@
 			children = (
 			);
 			path = Heatmap;
+			sourceTree = "<group>";
+		};
+		B6B146AE2492D0D6003D8879 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B6B146B02492D101003D8879 /* SBData.swift */,
+				B6B146AF2492D101003D8879 /* SBDataManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,10 +220,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B146B12492D101003D8879 /* SBDataManager.swift in Sources */,
 				25895DB8249172D1006C41A5 /* AppDelegate.swift in Sources */,
 				25895DBA249172D1006C41A5 /* SceneDelegate.swift in Sources */,
 				CB95FC6A2492A23000C97F82 /* WordView.swift in Sources */,
 				25895DBC249172D1006C41A5 /* ContentView.swift in Sources */,
+				B6B146B22492D101003D8879 /* SBData.swift in Sources */,
 				CB95FC672492A23000C97F82 /* WordModel.swift in Sources */,
 				CB95FC682492A23000C97F82 /* WordCloud.swift in Sources */,
 				CB95FC692492A23000C97F82 /* TextParser.swift in Sources */,
@@ -350,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_Graphics/Preview Content\"";
-				DEVELOPMENT_TEAM = DHAN829484;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftUI_Graphics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -370,7 +386,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_Graphics/Preview Content\"";
-				DEVELOPMENT_TEAM = DHAN829484;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftUI_Graphics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
