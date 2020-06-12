@@ -12,8 +12,9 @@ import SwiftUI
 /// Source: https://www.objc.io/blog/2019/12/16/drawing-trees/
 struct Diagram<A: Identifiable & Codable, V: View>: View {
     let tree: Tree<A>
+    let strokeColor: Color
     let node: (A) -> V
-
+    
     typealias Key = CollectDict<A.ID, Anchor<CGPoint>>
     /**
      - TODO: Adicionar a customização da árvore.
@@ -24,7 +25,7 @@ struct Diagram<A: Identifiable & Codable, V: View>: View {
                 .anchorPreference(key: Key.self, value: .center) { [self.tree.value.id: $0] }
             VStack(alignment: .center, spacing: 10) {
                 ForEach(tree.children, id: \.value.id, content: { child in
-                    Diagram(tree: child, node: self.node)
+                    Diagram(tree: child, strokeColor: self.strokeColor, node: self.node)
                 })
             }
         }.backgroundPreferenceValue(Key.self) { (centers: [A.ID: Anchor<CGPoint>]) in
@@ -32,7 +33,7 @@ struct Diagram<A: Identifiable & Codable, V: View>: View {
                 ForEach(self.tree.children, id: \.value.id, content: { child in
                     Line(from: proxy[centers[self.tree.value.id]!],
                          to: proxy[centers[child.value.id]!])
-                        .stroke()
+                        .stroke(self.strokeColor)
                 })
             }
         }

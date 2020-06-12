@@ -11,7 +11,7 @@ import Foundation
 /// Representation of a Tree and, consequently, a Node also.
 /// Created using objc-io tutorial on SwiftUI.
 /// Source: https://www.objc.io/blog/2019/12/16/drawing-trees/
-struct Tree<A: Codable> {
+public struct Tree<A: Codable> {
     /// The value of the Node.
     var value: A
 
