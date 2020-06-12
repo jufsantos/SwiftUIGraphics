@@ -33,15 +33,15 @@
 		25895DC0249172D3006C41A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		25895DC3249172D3006C41A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25895DC5249172D3006C41A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A4540CDB2492A57C00082584 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = SwiftUI_Graphics/Tree.swift; sourceTree = SOURCE_ROOT; };
-		A4540CDD2492A5BC00082584 /* Diagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Diagram.swift; path = SwiftUI_Graphics/Diagram.swift; sourceTree = SOURCE_ROOT; };
-		A4540CDF2492A5E700082584 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CGPoint+Extensions.swift"; path = "SwiftUI_Graphics/CGPoint+Extensions.swift"; sourceTree = SOURCE_ROOT; };
-		A4540CE12492A60300082584 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Line.swift; path = SwiftUI_Graphics/Line.swift; sourceTree = SOURCE_ROOT; };
-		A4540CE32492A64B00082584 /* Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Unique.swift; path = SwiftUI_Graphics/Unique.swift; sourceTree = SOURCE_ROOT; };
-		A4540CE52492A66E00082584 /* CollectDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectDict.swift; path = SwiftUI_Graphics/CollectDict.swift; sourceTree = SOURCE_ROOT; };
-		A4540CE72492A68D00082584 /* NodeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NodeStyle.swift; path = SwiftUI_Graphics/NodeStyle.swift; sourceTree = SOURCE_ROOT; };
-		A4540CE92492A8B700082584 /* TreeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMap.swift; path = SwiftUI_Graphics/TreeMap.swift; sourceTree = SOURCE_ROOT; };
-		A4DC52C62494068300365C3F /* TreeMapStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMapStyle.swift; path = SwiftUI_Graphics/TreeMapStyle.swift; sourceTree = SOURCE_ROOT; };
+		A4540CDB2492A57C00082584 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = SwiftUI_Graphics/TreeMap/Tree.swift; sourceTree = SOURCE_ROOT; };
+		A4540CDD2492A5BC00082584 /* Diagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Diagram.swift; path = SwiftUI_Graphics/TreeMap/Diagram.swift; sourceTree = SOURCE_ROOT; };
+		A4540CDF2492A5E700082584 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CGPoint+Extensions.swift"; path = "SwiftUI_Graphics/TreeMap/CGPoint+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		A4540CE12492A60300082584 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Line.swift; path = SwiftUI_Graphics/TreeMap/Line.swift; sourceTree = SOURCE_ROOT; };
+		A4540CE32492A64B00082584 /* Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Unique.swift; path = SwiftUI_Graphics/TreeMap/Unique.swift; sourceTree = SOURCE_ROOT; };
+		A4540CE52492A66E00082584 /* CollectDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectDict.swift; path = SwiftUI_Graphics/TreeMap/CollectDict.swift; sourceTree = SOURCE_ROOT; };
+		A4540CE72492A68D00082584 /* NodeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NodeStyle.swift; path = SwiftUI_Graphics/TreeMap/NodeStyle.swift; sourceTree = SOURCE_ROOT; };
+		A4540CE92492A8B700082584 /* TreeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMap.swift; path = SwiftUI_Graphics/TreeMap/TreeMap.swift; sourceTree = SOURCE_ROOT; };
+		A4DC52C62494068300365C3F /* TreeMapStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMapStyle.swift; path = SwiftUI_Graphics/TreeMap/TreeMapStyle.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +74,11 @@
 		25895DB6249172D1006C41A5 /* SwiftUI_Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				A4DC52C824940A0F00365C3F /* TreeMap */,
 				25895DD0249175BA006C41A5 /* Heatmap */,
 				25895DCF249175AF006C41A5 /* Radar */,
 				25895DCE2491759D006C41A5 /* Scatterplot */,
 				25895DCD24917581006C41A5 /* Sunburst */,
-				25895DCC24917493006C41A5 /* TreeMap */,
 				25895DCB24917476006C41A5 /* WorldCloud */,
 				25895DB7249172D1006C41A5 /* AppDelegate.swift */,
 				25895DB9249172D1006C41A5 /* SceneDelegate.swift */,
@@ -104,22 +104,6 @@
 			children = (
 			);
 			path = WorldCloud;
-			sourceTree = "<group>";
-		};
-		25895DCC24917493006C41A5 /* TreeMap */ = {
-			isa = PBXGroup;
-			children = (
-				A4540CDB2492A57C00082584 /* Tree.swift */,
-				A4540CDD2492A5BC00082584 /* Diagram.swift */,
-				A4540CDF2492A5E700082584 /* CGPoint+Extensions.swift */,
-				A4540CE12492A60300082584 /* Line.swift */,
-				A4540CE32492A64B00082584 /* Unique.swift */,
-				A4540CE52492A66E00082584 /* CollectDict.swift */,
-				A4540CE72492A68D00082584 /* NodeStyle.swift */,
-				A4540CE92492A8B700082584 /* TreeMap.swift */,
-				A4DC52C62494068300365C3F /* TreeMapStyle.swift */,
-			);
-			path = TreeMap;
 			sourceTree = "<group>";
 		};
 		25895DCD24917581006C41A5 /* Sunburst */ = {
@@ -148,6 +132,22 @@
 			children = (
 			);
 			path = Heatmap;
+			sourceTree = "<group>";
+		};
+		A4DC52C824940A0F00365C3F /* TreeMap */ = {
+			isa = PBXGroup;
+			children = (
+				A4540CDB2492A57C00082584 /* Tree.swift */,
+				A4540CDD2492A5BC00082584 /* Diagram.swift */,
+				A4540CDF2492A5E700082584 /* CGPoint+Extensions.swift */,
+				A4540CE12492A60300082584 /* Line.swift */,
+				A4540CE32492A64B00082584 /* Unique.swift */,
+				A4540CE52492A66E00082584 /* CollectDict.swift */,
+				A4540CE72492A68D00082584 /* NodeStyle.swift */,
+				A4540CE92492A8B700082584 /* TreeMap.swift */,
+				A4DC52C62494068300365C3F /* TreeMapStyle.swift */,
+			);
+			path = TreeMap;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
