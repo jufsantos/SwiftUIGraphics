@@ -144,7 +144,7 @@ struct ScatterPlotView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ScatterPlotView(data: ScatterPlotView_Previews.returnigData())
-                .background(Color.blue)
+                .background(Color.clear)
                 .previewDevice("iPad Pro (9.7-inch)")
             ScatterPlotView(data: ScatterPlotView_Previews.returnigData())
                 .background(Color.clear)
