@@ -45,9 +45,3 @@ struct NodeStyle: ViewModifier {
     }
 }
 
-
-public enum TreeMapStyle {
-    case circle
-    case roundedRectangle
-    case square
-}

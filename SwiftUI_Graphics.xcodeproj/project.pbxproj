@@ -21,6 +21,7 @@
 		A4540CE62492A66E00082584 /* CollectDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE52492A66E00082584 /* CollectDict.swift */; };
 		A4540CE82492A68D00082584 /* NodeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE72492A68D00082584 /* NodeStyle.swift */; };
 		A4540CEA2492A8B700082584 /* TreeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE92492A8B700082584 /* TreeMap.swift */; };
+		A4DC52C72494068300365C3F /* TreeMapStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DC52C62494068300365C3F /* TreeMapStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		A4540CE52492A66E00082584 /* CollectDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectDict.swift; path = SwiftUI_Graphics/CollectDict.swift; sourceTree = SOURCE_ROOT; };
 		A4540CE72492A68D00082584 /* NodeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NodeStyle.swift; path = SwiftUI_Graphics/NodeStyle.swift; sourceTree = SOURCE_ROOT; };
 		A4540CE92492A8B700082584 /* TreeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMap.swift; path = SwiftUI_Graphics/TreeMap.swift; sourceTree = SOURCE_ROOT; };
+		A4DC52C62494068300365C3F /* TreeMapStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMapStyle.swift; path = SwiftUI_Graphics/TreeMapStyle.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				A4540CE52492A66E00082584 /* CollectDict.swift */,
 				A4540CE72492A68D00082584 /* NodeStyle.swift */,
 				A4540CE92492A8B700082584 /* TreeMap.swift */,
+				A4DC52C62494068300365C3F /* TreeMapStyle.swift */,
 			);
 			path = TreeMap;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DC52C72494068300365C3F /* TreeMapStyle.swift in Sources */,
 				A4540CE62492A66E00082584 /* CollectDict.swift in Sources */,
 				25895DB8249172D1006C41A5 /* AppDelegate.swift in Sources */,
 				A4540CDC2492A57C00082584 /* Tree.swift in Sources */,

@@ -8,8 +8,9 @@
 
 import SwiftUI
 
-//Exemplos de construção de Diagramas em Árvore, com os tipos Int, Double e String
 /*
+    Examples of Tree Diagrams using Int, Double and String.
+
     let binaryTree = Tree<Int>(50, children: [
         Tree(17, children: [
             Tree(12),
