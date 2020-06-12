@@ -7,16 +7,17 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct HeatmapViewModel {
     
     let rowElements: [String]
     let colElements: [String]
     let data: [[Float]]
-    let valuesRange: [Float]
+    var valuesMarks: [Float]
     let colorRGB: String
     let size: Float = 50
-    let borderWidth: Float = 0
+    let borderWidth: Float = 0.2
     
     func checkElementQntd() {
         let totalElements = rowElements.count * colElements.count
@@ -30,7 +31,14 @@ struct HeatmapViewModel {
     }
     
     func colorVariation(value: Float) -> Float {
-        guard let max = valuesRange.last else { return 1.0 }
+        guard let max = valuesMarks.first else { return 1.0 }
+        for i in 0..<valuesMarks.count {
+            if (value > valuesMarks[i]) {
+                return valuesMarks[i-1]/max
+            } else if (value == valuesMarks[i]) {
+                return valuesMarks[i]/max
+            }
+        }
         return value/max
     }
     
@@ -44,5 +52,10 @@ struct HeatmapViewModel {
     
     func getRowName(row: Int) -> String {
         return rowElements[row]
+    }
+    
+    mutating func reorderArray() {
+        valuesMarks = valuesMarks.sorted(by: >)
+//        valuesMarks.reverse()
     }
 }
