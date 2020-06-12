@@ -10,7 +10,7 @@ import Foundation
 
 /// Created using objc-io tutorial on SwiftUI.
 /// Source: https://www.objc.io/blog/2019/12/16/drawing-trees/
-class Unique<A>: Identifiable {
+class Unique<A: Codable>: Identifiable, Codable {
     let value: A
     init(_ value: A) {
         self.value = value
