@@ -83,8 +83,10 @@ struct SubtitleInGeoProxyModifier: ViewModifier {
     
 }
 
-struct AxisView_Previews: PreviewProvider {
+#if DEBUG
+struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
         GraphView(color: .gray, [AxisComponent(subtitle: "A", max: 10), AxisComponent(subtitle: "B", max: 15), AxisComponent(subtitle: "C", max: 150)], [GraphElement(subtitle: "T1", values: [5, 7.5, 75], color: .red), GraphElement(subtitle: "T2", values: [5, 10, 10], color: .blue)])
     }
 }
+#endif

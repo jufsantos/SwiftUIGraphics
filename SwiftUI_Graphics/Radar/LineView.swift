@@ -11,13 +11,26 @@ import SwiftUI
 struct LineView: View {
     var color: Color
     var points: [CGPoint] = []
+    
     init(color: Color = .random(), _ points: () -> [CGPoint] ) {
         self.points = points()
         self.color = color
     }
+    
     init(color: Color = .random(), _ points: [CGPoint]) {
         self.points = points
         self.color = color
+    }
+    
+    init(color: Color, axisView: GraphView, axisComponents: [AxisComponent], values: [Double]) {
+        var points: [CGPoint] = []
+        for i in 0 ..< axisComponents.count {
+            if let point = axisView.findPoint(values[i], in: axisComponents[i]) {
+                points.append(point)
+            }
+        }
+        
+        self.init(color: color, points)
     }
 
     var body: some View {
