@@ -8,25 +8,76 @@
 
 import CoreGraphics
 
+struct ScatterPlotData: Plottable {
+    var xValue: CGFloat
+    var yValue: CGFloat
+
+    init<T : BinaryFloatingPoint>(_ xValue: T, _ yValue: T) {
+        self.xValue = CGFloat(xValue)
+        self.yValue = CGFloat(yValue)
+    }
+
+    init<T : BinaryInteger>(_ xValue: T, _ yValue: T) {
+        self.xValue = CGFloat(xValue)
+        self.yValue = CGFloat(yValue)
+    }
+}
+
 class ScatterPlotViewModel {
     
-    let data: [Plottable]
-    let maxX: CGFloat
-    let maxY: CGFloat
+    let model: ScatterPlotModel
     
     init(data: [Plottable]) {
-        self.data = data
-        maxX = (data.map{$0.xValue}.max() ?? 1) * 2
-        maxY = (data.map{$0.yValue}.max() ?? 1) * 2
+        var maxX: Double = 1
+        var maxY: Double = 1
+        if !data.isEmpty {
+            if let maximumX = data.map({$0.xValue}).max(), let maximumY = data.map({$0.yValue}).max() {
+                maxX = Double(maximumX)
+                maxY = Double(maximumY)
+            }
+        }
+        self.model = ScatterPlotModel(data: data, maxX: maxX, maxY: maxY)
     }
-    
+
+    init<T: BinaryInteger>(_ xAxis: [T], _ yAxis: [T]) {
+        var data: [Plottable] = []
+        for index in 0..<(xAxis.count >= yAxis.count ? yAxis.count : xAxis.count) {
+            data.append(ScatterPlotData(xAxis[index], yAxis[index]))
+        }
+        var maxX: Double = 1
+        var maxY: Double = 1
+        if !data.isEmpty {
+            if let maximumX = data.map({$0.xValue}).max(), let maximumY = data.map({$0.yValue}).max() {
+                maxX = Double(maximumX)
+                maxY = Double(maximumY)
+            }
+        }
+        self.model = ScatterPlotModel(data: data, maxX: maxX, maxY: maxY)
+    }
+
+    init<T: BinaryFloatingPoint>(_ xAxis: [T], _ yAxis: [T]) {
+        var data: [Plottable] = []
+        for index in 0..<(xAxis.count >= yAxis.count ? yAxis.count : xAxis.count) {
+            data.append(ScatterPlotData(xAxis[index], yAxis[index]))
+        }
+        var maxX: Double = 1
+        var maxY: Double = 1
+        if !data.isEmpty {
+            if let maximumX = data.map({$0.xValue}).max(), let maximumY = data.map({$0.yValue}).max() {
+                maxX = Double(maximumX)
+                maxY = Double(maximumY)
+            }
+        }
+        self.model = ScatterPlotModel(data: data, maxX: maxX, maxY: maxY)
+    }
+
     func getDotsPositions() -> [CGPoint] {
         var positions: [CGPoint] = []
         
-        data.forEach{ (value: Plottable) in
+        model.data.forEach{ (value: Plottable) in
             
-            let xPosition = (value.xValue / maxX)
-            let yPosition = (value.yValue / maxY)
+            let xPosition = (value.xValue / CGFloat(model.maxX))
+            let yPosition = (value.yValue / CGFloat(model.maxY))
             
             positions.append(CGPoint(x: xPosition, y: yPosition))
         }

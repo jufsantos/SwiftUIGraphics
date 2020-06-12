@@ -9,11 +9,24 @@
 import Foundation
 import SwiftUI
 
-struct ScatterPlotView: View {
+protocol Plottable {
+    var xValue: CGFloat {get set}
+    var yValue: CGFloat {get set}
+}
+
+struct ScatterPlot: View {
     let viewModel: ScatterPlotViewModel
     
     init(data: [Plottable]) {
         viewModel = ScatterPlotViewModel(data: data)
+    }
+
+    init<T: BinaryFloatingPoint>(xAxis: [T], yAxis: [T]) {
+        viewModel = ScatterPlotViewModel(xAxis, yAxis)
+    }
+
+    init<T: BinaryInteger>(xAxis: [T], yAxis: [T]) {
+        viewModel = ScatterPlotViewModel(xAxis, yAxis)
     }
     
     var body: some View {
@@ -24,65 +37,42 @@ struct ScatterPlotView: View {
                         .fill()
                         .foregroundColor(Color.red)
             }.padding(10)
-        }
-        .background(Axis(lineWidth: 10).foregroundColor(.orange))
-    }
-}
-
-struct DotShape: Shape {
-    var locations: [CGPoint]
-    var size: CGFloat = 10
-
-    func path(in rect: CGRect) -> Path {
-        Path { path in
-            guard !locations.isEmpty else { return }
-            for location in locations {
-                let x = (location.x * rect.width) - size/2
-                let y = -((location.y * rect.height) + size/2) + rect.height
-                let position = CGRect(x: x, y: y, width: size, height: size)
-                path.addEllipse(in: position)
-            }
+            Axis(lineWidth: 10).foregroundColor(.orange)
         }
     }
 }
 
-struct Axis: View {
-    var lineWidth: CGFloat = 1
-    var body: some View {
-        ZStack {
-            HStack {
-                Rectangle()
-                    .frame(width: lineWidth, height: nil, alignment: .leading)
-                Spacer()
-            }
-            VStack {
-                Spacer()
-                Rectangle()
-                    .frame(width: nil, height: lineWidth, alignment: .leading)
-            }
-        }
-    }
-}
+
 
 struct ScatterPlotView_Previews: PreviewProvider {
+    static func randomizedIntData() -> [Int] {
+        var arrayData: [Int] = []
+        for _ in 0...60 {
+            arrayData.append(Int.random(in: 0...60))
+        }
+
+        return arrayData
+    }
+
+    static func randomizedDoubleData() -> [Double] {
+        var arrayData: [Double] = []
+        for _ in 0...60 {
+            arrayData.append(Double.random(in: 0...67))
+        }
+
+        return arrayData
+    }
+
     static var previews: some View {
         Group {
-            ScatterPlotView(data: [ScatterPlotData()])
-                .background(Color.blue)
+            ScatterPlot(xAxis: ScatterPlotView_Previews.randomizedIntData(), yAxis: ScatterPlotView_Previews.randomizedIntData())
+                .edgesIgnoringSafeArea(.all)
+                .background(Color.clear)
                 .previewDevice("iPad Pro (9.7-inch)")
-            ScatterPlotView(data: [ScatterPlotData()])
-                .background(Color.blue)
+            ScatterPlot(xAxis: ScatterPlotView_Previews.randomizedDoubleData(), yAxis: ScatterPlotView_Previews.randomizedDoubleData())
+                .edgesIgnoringSafeArea(.all)
+                .background(Color.clear)
                 .previewDevice("iPhone Xs")
         }
     }
-}
-
-struct ScatterPlotData: Plottable {
-    var xValue: CGFloat = 200
-    var yValue: CGFloat = 30
-}
-
-protocol Plottable {
-    var xValue: CGFloat {get set}
-    var yValue: CGFloat {get set}
 }

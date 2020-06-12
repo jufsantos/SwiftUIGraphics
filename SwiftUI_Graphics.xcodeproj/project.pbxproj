@@ -15,6 +15,9 @@
 		25895DC4249172D3006C41A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25895DC2249172D3006C41A5 /* LaunchScreen.storyboard */; };
 		C07709212492CA1A005161A2 /* ScatterPlotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07709202492CA1A005161A2 /* ScatterPlotViewModel.swift */; };
 		F207921C24929D7900E8B001 /* ScatterPlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207921B24929D7900E8B001 /* ScatterPlotView.swift */; };
+		F251E09F2493FFE5001C7835 /* ScatterPlotModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F251E09E2493FFE5001C7835 /* ScatterPlotModel.swift */; };
+		F282F33A249422200095F3C2 /* ScatterPlotAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = F282F339249422200095F3C2 /* ScatterPlotAxis.swift */; };
+		F282F33C2494225D0095F3C2 /* ScatterPlotDotShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F282F33B2494225D0095F3C2 /* ScatterPlotDotShape.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		25895DC5249172D3006C41A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C07709202492CA1A005161A2 /* ScatterPlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterPlotViewModel.swift; sourceTree = "<group>"; };
 		F207921B24929D7900E8B001 /* ScatterPlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterPlotView.swift; sourceTree = "<group>"; };
+		F251E09E2493FFE5001C7835 /* ScatterPlotModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterPlotModel.swift; sourceTree = "<group>"; };
+		F282F339249422200095F3C2 /* ScatterPlotAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterPlotAxis.swift; sourceTree = "<group>"; };
+		F282F33B2494225D0095F3C2 /* ScatterPlotDotShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterPlotDotShape.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +116,10 @@
 			isa = PBXGroup;
 			children = (
 				F207921B24929D7900E8B001 /* ScatterPlotView.swift */,
+				F282F33B2494225D0095F3C2 /* ScatterPlotDotShape.swift */,
+				F282F339249422200095F3C2 /* ScatterPlotAxis.swift */,
 				C07709202492CA1A005161A2 /* ScatterPlotViewModel.swift */,
+				F251E09E2493FFE5001C7835 /* ScatterPlotModel.swift */,
 			);
 			path = Scatterplot;
 			sourceTree = "<group>";
@@ -201,8 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F207921C24929D7900E8B001 /* ScatterPlotView.swift in Sources */,
+				F282F33C2494225D0095F3C2 /* ScatterPlotDotShape.swift in Sources */,
+				F251E09F2493FFE5001C7835 /* ScatterPlotModel.swift in Sources */,
 				25895DB8249172D1006C41A5 /* AppDelegate.swift in Sources */,
 				25895DBA249172D1006C41A5 /* SceneDelegate.swift in Sources */,
+				F282F33A249422200095F3C2 /* ScatterPlotAxis.swift in Sources */,
 				C07709212492CA1A005161A2 /* ScatterPlotViewModel.swift in Sources */,
 				25895DBC249172D1006C41A5 /* ContentView.swift in Sources */,
 			);
