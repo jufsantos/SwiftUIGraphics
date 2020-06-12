@@ -22,12 +22,13 @@ struct ScatterPlotView: View {
                 ZStack {
                     DotShape(locations: dotsPositions, size: 12)
                         .fill()
-                        .foregroundColor(Color.red)
+                        .foregroundColor(Color.blue)
             }.padding(10)
+            Axis(lineWidth: 10).foregroundColor(.orange)
         }
-        .background(Axis(lineWidth: 10).foregroundColor(.orange))
     }
 }
+
 
 struct DotShape: Shape {
     var locations: [CGPoint]
@@ -48,6 +49,8 @@ struct DotShape: Shape {
 
 struct Axis: View {
     var lineWidth: CGFloat = 1
+    let spaceData: CGFloat = 50
+    
     var body: some View {
         ZStack {
             HStack {
@@ -55,31 +58,104 @@ struct Axis: View {
                     .frame(width: lineWidth, height: nil, alignment: .leading)
                 Spacer()
             }
+            
             VStack {
                 Spacer()
                 Rectangle()
                     .frame(width: nil, height: lineWidth, alignment: .leading)
+            }
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer().frame(width: lineWidth, height: nil)
+                    Spacer()
+                    Rectangle()
+                        
+                        .frame(width: lineWidth/1.5, height: lineWidth * 2, alignment: .leading)
+                        .foregroundColor(.orange)
+                    Spacer()
+                    
+                    Rectangle()
+                        
+                        .frame(width: lineWidth/1.5, height: lineWidth * 2, alignment: .leading)
+                        .foregroundColor(.orange)
+                    
+                    Spacer()
+                    Rectangle()
+                        
+                        .frame(width: lineWidth/1.5, height: lineWidth * 2, alignment: .leading)
+                        .foregroundColor(.orange)
+                    Spacer()
+                    
+                    Rectangle()
+                        
+                        .frame(width: lineWidth/1.5, height: lineWidth * 2, alignment: .leading)
+                        .foregroundColor(.orange)
+                    Spacer()
+                }
+            }
+            HStack {
+                VStack {
+                    
+                    Spacer()
+                    Rectangle()
+                        
+                        .frame(width: lineWidth * 2, height: lineWidth/1.5, alignment: .leading)
+                        .foregroundColor(.orange)
+                    Spacer()
+                    
+                    Rectangle()
+                        
+                        .frame(width: lineWidth * 2, height: lineWidth/1.5, alignment: .leading)
+                        .foregroundColor(.orange)
+                    
+                    Spacer()
+                    Rectangle()
+                        
+                        .frame(width: lineWidth * 2, height: lineWidth/1.5, alignment: .leading)
+                        .foregroundColor(.orange)
+                    Spacer()
+                    
+                    Rectangle()
+                        
+                        .frame(width:lineWidth * 2, height: lineWidth/1.5, alignment: .leading)
+                        .foregroundColor(.orange)
+                    Spacer()
+                    Spacer().frame(width: nil, height: lineWidth)
+                }
+                Spacer()
             }
         }
     }
 }
 
 struct ScatterPlotView_Previews: PreviewProvider {
+    
+    static func returnigData() -> [ScatterPlotData] {
+        var arrayData: [ScatterPlotData] = []
+        for i in 0...60 {
+            arrayData.append(ScatterPlotData(xValue: CGFloat(i), yValue: CGFloat.random(in: 0...42)))
+        }
+        
+        return arrayData
+    }
+    
     static var previews: some View {
         Group {
-            ScatterPlotView(data: [ScatterPlotData()])
-                .background(Color.blue)
+            ScatterPlotView(data: ScatterPlotView_Previews.returnigData())
+                .background(Color.clear)
                 .previewDevice("iPad Pro (9.7-inch)")
-            ScatterPlotView(data: [ScatterPlotData()])
-                .background(Color.blue)
+            ScatterPlotView(data: ScatterPlotView_Previews.returnigData())
+                .background(Color.clear)
                 .previewDevice("iPhone Xs")
         }
     }
 }
 
 struct ScatterPlotData: Plottable {
-    var xValue: CGFloat = 200
-    var yValue: CGFloat = 30
+    var xValue: CGFloat
+    var yValue: CGFloat
 }
 
 protocol Plottable {
