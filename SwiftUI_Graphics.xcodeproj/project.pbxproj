@@ -15,6 +15,12 @@
 		25895DBE249172D3006C41A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25895DBD249172D3006C41A5 /* Assets.xcassets */; };
 		25895DC1249172D3006C41A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25895DC0249172D3006C41A5 /* Preview Assets.xcassets */; };
 		25895DC4249172D3006C41A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25895DC2249172D3006C41A5 /* LaunchScreen.storyboard */; };
+		8262239424940A6D009DEDAB /* SBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238C24940A6C009DEDAB /* SBDataManager.swift */; };
+		8262239524940A6D009DEDAB /* SBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238D24940A6C009DEDAB /* SBData.swift */; };
+		8262239624940A6D009DEDAB /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238F24940A6C009DEDAB /* WordModel.swift */; };
+		8262239A24940A6D009DEDAB /* TextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239324940A6C009DEDAB /* TextParser.swift */; };
+		8262239E24940BD2009DEDAB /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239D24940BD2009DEDAB /* WordView.swift */; };
+		826223A024940C05009DEDAB /* WordCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239F24940C05009DEDAB /* WordCloud.swift */; };
 		A7FD7F892492A53F00C26668 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FD7F882492A53F00C26668 /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +35,12 @@
 		25895DC0249172D3006C41A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		25895DC3249172D3006C41A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25895DC5249172D3006C41A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8262238C24940A6C009DEDAB /* SBDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDataManager.swift; sourceTree = "<group>"; };
+		8262238D24940A6C009DEDAB /* SBData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBData.swift; sourceTree = "<group>"; };
+		8262238F24940A6C009DEDAB /* WordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
+		8262239324940A6C009DEDAB /* TextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextParser.swift; sourceTree = "<group>"; };
+		8262239D24940BD2009DEDAB /* WordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		8262239F24940C05009DEDAB /* WordCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCloud.swift; sourceTree = "<group>"; };
 		A7FD7F882492A53F00C26668 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				25895DB7249172D1006C41A5 /* AppDelegate.swift */,
+				8262238A24940A6C009DEDAB /* Sunburst */,
+				8262238E24940A6C009DEDAB /* WorldCloud */,
 				02E1AFA224929C860073DF1E /* Radar */,
 				25895DB9249172D1006C41A5 /* SceneDelegate.swift */,
 				25895DBB249172D1006C41A5 /* ContentView.swift */,
@@ -90,6 +104,34 @@
 				25895DC0249172D3006C41A5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8262238A24940A6C009DEDAB /* Sunburst */ = {
+			isa = PBXGroup;
+			children = (
+				8262238B24940A6C009DEDAB /* Model */,
+			);
+			path = Sunburst;
+			sourceTree = "<group>";
+		};
+		8262238B24940A6C009DEDAB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8262238C24940A6C009DEDAB /* SBDataManager.swift */,
+				8262238D24940A6C009DEDAB /* SBData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8262238E24940A6C009DEDAB /* WorldCloud */ = {
+			isa = PBXGroup;
+			children = (
+				8262239F24940C05009DEDAB /* WordCloud.swift */,
+				8262239D24940BD2009DEDAB /* WordView.swift */,
+				8262238F24940A6C009DEDAB /* WordModel.swift */,
+				8262239324940A6C009DEDAB /* TextParser.swift */,
+			);
+			path = WorldCloud;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,11 +206,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				02E1AFA424929C9A0073DF1E /* LineView.swift in Sources */,
+				8262239624940A6D009DEDAB /* WordModel.swift in Sources */,
 				25895DB8249172D1006C41A5 /* AppDelegate.swift in Sources */,
 				25895DBA249172D1006C41A5 /* SceneDelegate.swift in Sources */,
+				8262239424940A6D009DEDAB /* SBDataManager.swift in Sources */,
 				25895DBC249172D1006C41A5 /* ContentView.swift in Sources */,
 				A7FD7F892492A53F00C26668 /* GraphView.swift in Sources */,
+				8262239E24940BD2009DEDAB /* WordView.swift in Sources */,
+				8262239524940A6D009DEDAB /* SBData.swift in Sources */,
+				826223A024940C05009DEDAB /* WordCloud.swift in Sources */,
 				1EE7EA3C2493EC5C009432F2 /* Helpers.swift in Sources */,
+				8262239A24940A6D009DEDAB /* TextParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
