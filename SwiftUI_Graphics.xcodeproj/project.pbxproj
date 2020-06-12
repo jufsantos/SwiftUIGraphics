@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02E1AFA424929C9A0073DF1E /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E1AFA324929C9A0073DF1E /* LineView.swift */; };
+		1EE7EA3C2493EC5C009432F2 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EE7EA3B2493EC5C009432F2 /* Helpers.swift */; };
 		25895DB8249172D1006C41A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25895DB7249172D1006C41A5 /* AppDelegate.swift */; };
 		25895DBA249172D1006C41A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25895DB9249172D1006C41A5 /* SceneDelegate.swift */; };
 		25895DBC249172D1006C41A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25895DBB249172D1006C41A5 /* ContentView.swift */; };
@@ -15,9 +17,29 @@
 		25895DC4249172D3006C41A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25895DC2249172D3006C41A5 /* LaunchScreen.storyboard */; };
 		C07709212492CA1A005161A2 /* ScatterPlotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07709202492CA1A005161A2 /* ScatterPlotViewModel.swift */; };
 		F207921C24929D7900E8B001 /* ScatterPlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F207921B24929D7900E8B001 /* ScatterPlotView.swift */; };
+		8262239424940A6D009DEDAB /* SBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238C24940A6C009DEDAB /* SBDataManager.swift */; };
+		8262239524940A6D009DEDAB /* SBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238D24940A6C009DEDAB /* SBData.swift */; };
+		8262239624940A6D009DEDAB /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238F24940A6C009DEDAB /* WordModel.swift */; };
+		8262239A24940A6D009DEDAB /* TextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239324940A6C009DEDAB /* TextParser.swift */; };
+		8262239E24940BD2009DEDAB /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239D24940BD2009DEDAB /* WordView.swift */; };
+		826223A024940C05009DEDAB /* WordCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239F24940C05009DEDAB /* WordCloud.swift */; };
+		A4540CDC2492A57C00082584 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CDB2492A57C00082584 /* Tree.swift */; };
+		A4540CDE2492A5BC00082584 /* Diagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CDD2492A5BC00082584 /* Diagram.swift */; };
+		A4540CE02492A5E700082584 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CDF2492A5E700082584 /* CGPoint+Extensions.swift */; };
+		A4540CE22492A60300082584 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE12492A60300082584 /* Line.swift */; };
+		A4540CE42492A64B00082584 /* Unique.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE32492A64B00082584 /* Unique.swift */; };
+		A4540CE62492A66E00082584 /* CollectDict.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE52492A66E00082584 /* CollectDict.swift */; };
+		A4540CE82492A68D00082584 /* NodeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE72492A68D00082584 /* NodeStyle.swift */; };
+		A4540CEA2492A8B700082584 /* TreeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE92492A8B700082584 /* TreeMap.swift */; };
+		A4DC52C72494068300365C3F /* TreeMapStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DC52C62494068300365C3F /* TreeMapStyle.swift */; };
+		A7FD7F892492A53F00C26668 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FD7F882492A53F00C26668 /* GraphView.swift */; };
+		E0EED6792494159000ABE432 /* HeatmapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EED6782494159000ABE432 /* HeatmapViewModel.swift */; };
+		E0EED67B2494159900ABE432 /* Heatmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EED67A2494159900ABE432 /* Heatmap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02E1AFA324929C9A0073DF1E /* LineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
+		1EE7EA3B2493EC5C009432F2 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		25895DB4249172D1006C41A5 /* SwiftUI_Graphics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_Graphics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25895DB7249172D1006C41A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25895DB9249172D1006C41A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +50,24 @@
 		25895DC5249172D3006C41A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C07709202492CA1A005161A2 /* ScatterPlotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterPlotViewModel.swift; sourceTree = "<group>"; };
 		F207921B24929D7900E8B001 /* ScatterPlotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterPlotView.swift; sourceTree = "<group>"; };
+		8262238C24940A6C009DEDAB /* SBDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDataManager.swift; sourceTree = "<group>"; };
+		8262238D24940A6C009DEDAB /* SBData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBData.swift; sourceTree = "<group>"; };
+		8262238F24940A6C009DEDAB /* WordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
+		8262239324940A6C009DEDAB /* TextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextParser.swift; sourceTree = "<group>"; };
+		8262239D24940BD2009DEDAB /* WordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		8262239F24940C05009DEDAB /* WordCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCloud.swift; sourceTree = "<group>"; };
+		A4540CDB2492A57C00082584 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = SwiftUI_Graphics/TreeMap/Tree.swift; sourceTree = SOURCE_ROOT; };
+		A4540CDD2492A5BC00082584 /* Diagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Diagram.swift; path = SwiftUI_Graphics/TreeMap/Diagram.swift; sourceTree = SOURCE_ROOT; };
+		A4540CDF2492A5E700082584 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CGPoint+Extensions.swift"; path = "SwiftUI_Graphics/TreeMap/CGPoint+Extensions.swift"; sourceTree = SOURCE_ROOT; };
+		A4540CE12492A60300082584 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Line.swift; path = SwiftUI_Graphics/TreeMap/Line.swift; sourceTree = SOURCE_ROOT; };
+		A4540CE32492A64B00082584 /* Unique.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Unique.swift; path = SwiftUI_Graphics/TreeMap/Unique.swift; sourceTree = SOURCE_ROOT; };
+		A4540CE52492A66E00082584 /* CollectDict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectDict.swift; path = SwiftUI_Graphics/TreeMap/CollectDict.swift; sourceTree = SOURCE_ROOT; };
+		A4540CE72492A68D00082584 /* NodeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NodeStyle.swift; path = SwiftUI_Graphics/TreeMap/NodeStyle.swift; sourceTree = SOURCE_ROOT; };
+		A4540CE92492A8B700082584 /* TreeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMap.swift; path = SwiftUI_Graphics/TreeMap/TreeMap.swift; sourceTree = SOURCE_ROOT; };
+		A4DC52C62494068300365C3F /* TreeMapStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMapStyle.swift; path = SwiftUI_Graphics/TreeMap/TreeMapStyle.swift; sourceTree = SOURCE_ROOT; };
+		A7FD7F882492A53F00C26668 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		E0EED6782494159000ABE432 /* HeatmapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapViewModel.swift; sourceTree = "<group>"; };
+		E0EED67A2494159900ABE432 /* Heatmap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heatmap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +81,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02E1AFA224929C860073DF1E /* Radar */ = {
+			isa = PBXGroup;
+			children = (
+				02E1AFA324929C9A0073DF1E /* LineView.swift */,
+				A7FD7F882492A53F00C26668 /* GraphView.swift */,
+				1EE7EA3B2493EC5C009432F2 /* Helpers.swift */,
+			);
+			path = Radar;
+			sourceTree = "<group>";
+		};
 		25895DAB249172D0006C41A5 = {
 			isa = PBXGroup;
 			children = (
@@ -60,13 +110,12 @@
 		25895DB6249172D1006C41A5 /* SwiftUI_Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				25895DD0249175BA006C41A5 /* Heatmap */,
-				25895DCF249175AF006C41A5 /* Radar */,
-				25895DCE2491759D006C41A5 /* Scatterplot */,
-				25895DCD24917581006C41A5 /* Sunburst */,
-				25895DCC24917493006C41A5 /* TreeMap */,
-				25895DCB24917476006C41A5 /* WorldCloud */,
+				E0EED675249414F800ABE432 /* Heatmap */,
+				A4DC52C824940A0F00365C3F /* TreeMap */,
 				25895DB7249172D1006C41A5 /* AppDelegate.swift */,
+				8262238A24940A6C009DEDAB /* Sunburst */,
+				8262238E24940A6C009DEDAB /* WorldCloud */,
+				02E1AFA224929C860073DF1E /* Radar */,
 				25895DB9249172D1006C41A5 /* SceneDelegate.swift */,
 				25895DBB249172D1006C41A5 /* ContentView.swift */,
 				25895DBD249172D3006C41A5 /* Assets.xcassets */,
@@ -85,48 +134,75 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		25895DCB24917476006C41A5 /* WorldCloud */ = {
+		8262238A24940A6C009DEDAB /* Sunburst */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = WorldCloud;
-			sourceTree = "<group>";
-		};
-		25895DCC24917493006C41A5 /* TreeMap */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TreeMap;
-			sourceTree = "<group>";
-		};
-		25895DCD24917581006C41A5 /* Sunburst */ = {
-			isa = PBXGroup;
-			children = (
+				8262238B24940A6C009DEDAB /* Model */,
 			);
 			path = Sunburst;
 			sourceTree = "<group>";
 		};
-		25895DCE2491759D006C41A5 /* Scatterplot */ = {
+		8262238B24940A6C009DEDAB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8262238C24940A6C009DEDAB /* SBDataManager.swift */,
+				8262238D24940A6C009DEDAB /* SBData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8262238E24940A6C009DEDAB /* WorldCloud */ = {
+			isa = PBXGroup;
+			children = (
+				8262239F24940C05009DEDAB /* WordCloud.swift */,
+				8262239D24940BD2009DEDAB /* WordView.swift */,
+				8262238F24940A6C009DEDAB /* WordModel.swift */,
+				8262239324940A6C009DEDAB /* TextParser.swift */,
+			);
+			path = WorldCloud;
+			sourceTree = "<group>";
+		};
+		A4DC52C824940A0F00365C3F /* TreeMap */ = {
 			isa = PBXGroup;
 			children = (
 				F207921B24929D7900E8B001 /* ScatterPlotView.swift */,
 				C07709202492CA1A005161A2 /* ScatterPlotViewModel.swift */,
+				A4540CDB2492A57C00082584 /* Tree.swift */,
+				A4540CDD2492A5BC00082584 /* Diagram.swift */,
+				A4540CDF2492A5E700082584 /* CGPoint+Extensions.swift */,
+				A4540CE12492A60300082584 /* Line.swift */,
+				A4540CE32492A64B00082584 /* Unique.swift */,
+				A4540CE52492A66E00082584 /* CollectDict.swift */,
+				A4540CE72492A68D00082584 /* NodeStyle.swift */,
+				A4540CE92492A8B700082584 /* TreeMap.swift */,
+				A4DC52C62494068300365C3F /* TreeMapStyle.swift */,
 			);
-			path = Scatterplot;
+			path = TreeMap;
 			sourceTree = "<group>";
 		};
-		25895DCF249175AF006C41A5 /* Radar */ = {
+		E0EED675249414F800ABE432 /* Heatmap */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = Radar;
-			sourceTree = "<group>";
-		};
-		25895DD0249175BA006C41A5 /* Heatmap */ = {
-			isa = PBXGroup;
-			children = (
+				E0EED6772494152C00ABE432 /* ViewModel */,
+				E0EED6762494151C00ABE432 /* View */,
 			);
 			path = Heatmap;
+			sourceTree = "<group>";
+		};
+		E0EED6762494151C00ABE432 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0EED67A2494159900ABE432 /* Heatmap.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0EED6772494152C00ABE432 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E0EED6782494159000ABE432 /* HeatmapViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,10 +277,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				F207921C24929D7900E8B001 /* ScatterPlotView.swift in Sources */,
+				A4DC52C72494068300365C3F /* TreeMapStyle.swift in Sources */,
+				A4540CE62492A66E00082584 /* CollectDict.swift in Sources */,
+				02E1AFA424929C9A0073DF1E /* LineView.swift in Sources */,
+				8262239624940A6D009DEDAB /* WordModel.swift in Sources */,
 				25895DB8249172D1006C41A5 /* AppDelegate.swift in Sources */,
+				E0EED6792494159000ABE432 /* HeatmapViewModel.swift in Sources */,
+				A4540CDC2492A57C00082584 /* Tree.swift in Sources */,
 				25895DBA249172D1006C41A5 /* SceneDelegate.swift in Sources */,
 				C07709212492CA1A005161A2 /* ScatterPlotViewModel.swift in Sources */,
+				A4540CEA2492A8B700082584 /* TreeMap.swift in Sources */,
+				A4540CDE2492A5BC00082584 /* Diagram.swift in Sources */,
+				E0EED67B2494159900ABE432 /* Heatmap.swift in Sources */,
+				A4540CE02492A5E700082584 /* CGPoint+Extensions.swift in Sources */,
+				A4540CE22492A60300082584 /* Line.swift in Sources */,
+				A4540CE82492A68D00082584 /* NodeStyle.swift in Sources */,
+				A4540CE42492A64B00082584 /* Unique.swift in Sources */,
+				8262239424940A6D009DEDAB /* SBDataManager.swift in Sources */,
 				25895DBC249172D1006C41A5 /* ContentView.swift in Sources */,
+				A7FD7F892492A53F00C26668 /* GraphView.swift in Sources */,
+				8262239E24940BD2009DEDAB /* WordView.swift in Sources */,
+				8262239524940A6D009DEDAB /* SBData.swift in Sources */,
+				826223A024940C05009DEDAB /* WordCloud.swift in Sources */,
+				1EE7EA3C2493EC5C009432F2 /* Helpers.swift in Sources */,
+				8262239A24940A6D009DEDAB /* TextParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,14 +438,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_Graphics/Preview Content\"";
-				DEVELOPMENT_TEAM = D6BLGKTBJB;
+				DEVELOPMENT_TEAM = 532N45X4ZD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftUI_Graphics/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.luizafattori.SwiftUI-Graphics";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vic.SwiftUI-Graphics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -362,14 +459,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI_Graphics/Preview Content\"";
-				DEVELOPMENT_TEAM = D6BLGKTBJB;
+				DEVELOPMENT_TEAM = 532N45X4ZD;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftUI_Graphics/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.luizafattori.SwiftUI-Graphics";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.vic.SwiftUI-Graphics";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
