@@ -13,7 +13,7 @@ public struct AxisComponent: Hashable {
     var max: Double
 }
 
-struct GraphElement {
+public struct GraphElement: Hashable {
     var subtitle: String
     var values: [Double]
     var color: Color

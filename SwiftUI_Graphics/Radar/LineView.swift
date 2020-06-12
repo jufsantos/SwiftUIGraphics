@@ -42,7 +42,7 @@ struct LineView: View {
                 path.addLine(to: point)
             }
             path.addLine(to: first)
-        }.stroke(color, lineWidth: 1.5)
+        }.stroke(color, lineWidth: 2)
     }
 }
 
