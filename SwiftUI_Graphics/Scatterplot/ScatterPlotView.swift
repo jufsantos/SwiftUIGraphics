@@ -18,39 +18,31 @@ struct ScatterPlotView: View {
     
     var body: some View {
         let dotsPositions = viewModel.getDotsPositions()
-        
-        return GeometryReader { (proxy: GeometryProxy) in
-            ZStack {
-                VStack {
-                    Spacer()
-                    ZStack() {
-                        Axis(lineWidth: 20)
-                    }
-                }
-                
-                ForEach (dotsPositions.indices) { (index) in
-                    Dot(at: CGPoint(x: dotsPositions[index].x * proxy.size.width, y: dotsPositions[index].y * proxy.size.height), size: 20)
-                }
-            }
+        return ZStack {
+                ZStack {
+                    DotShape(locations: dotsPositions, size: 12)
+                        .fill()
+                        .foregroundColor(Color.red)
+            }.padding(10)
         }
+        .background(Axis(lineWidth: 10).foregroundColor(.orange))
     }
 }
 
-struct Dot: View {
-    var size: CGFloat = 5
-    var origin: CGPoint = .zero
+struct DotShape: Shape {
+    var locations: [CGPoint]
+    var size: CGFloat = 10
 
-    var body: some View {
-        Circle()
-        .path(in: CGRect(origin: origin, size: CGSize(width: size, height: size)))
-    }
-
-    init(at location: CGPoint, size: CGFloat?) {
-        if let size = size {
-            self.size = size
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+            guard !locations.isEmpty else { return }
+            for location in locations {
+                let x = (location.x * rect.width) - size/2
+                let y = -((location.y * rect.height) + size/2) + rect.height
+                let position = CGRect(x: x, y: y, width: size, height: size)
+                path.addEllipse(in: position)
+            }
         }
-        self.origin = CGPoint(x: location.x - self.size/2,
-                              y: location.y - self.size/2)
     }
 }
 
@@ -69,7 +61,6 @@ struct Axis: View {
                     .frame(width: nil, height: lineWidth, alignment: .leading)
             }
         }
-        .padding([.bottom,.leading])
     }
 }
 
