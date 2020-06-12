@@ -15,6 +15,12 @@
 		25895DBE249172D3006C41A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25895DBD249172D3006C41A5 /* Assets.xcassets */; };
 		25895DC1249172D3006C41A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25895DC0249172D3006C41A5 /* Preview Assets.xcassets */; };
 		25895DC4249172D3006C41A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25895DC2249172D3006C41A5 /* LaunchScreen.storyboard */; };
+		8262239424940A6D009DEDAB /* SBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238C24940A6C009DEDAB /* SBDataManager.swift */; };
+		8262239524940A6D009DEDAB /* SBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238D24940A6C009DEDAB /* SBData.swift */; };
+		8262239624940A6D009DEDAB /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238F24940A6C009DEDAB /* WordModel.swift */; };
+		8262239A24940A6D009DEDAB /* TextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239324940A6C009DEDAB /* TextParser.swift */; };
+		8262239E24940BD2009DEDAB /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239D24940BD2009DEDAB /* WordView.swift */; };
+		826223A024940C05009DEDAB /* WordCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239F24940C05009DEDAB /* WordCloud.swift */; };
 		A4540CDC2492A57C00082584 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CDB2492A57C00082584 /* Tree.swift */; };
 		A4540CDE2492A5BC00082584 /* Diagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CDD2492A5BC00082584 /* Diagram.swift */; };
 		A4540CE02492A5E700082584 /* CGPoint+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CDF2492A5E700082584 /* CGPoint+Extensions.swift */; };
@@ -24,15 +30,9 @@
 		A4540CE82492A68D00082584 /* NodeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE72492A68D00082584 /* NodeStyle.swift */; };
 		A4540CEA2492A8B700082584 /* TreeMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4540CE92492A8B700082584 /* TreeMap.swift */; };
 		A4DC52C72494068300365C3F /* TreeMapStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4DC52C62494068300365C3F /* TreeMapStyle.swift */; };
-		4F54D42C24929F2A009A9954 /* HeatmapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F54D42B24929F2A009A9954 /* HeatmapViewModel.swift */; };
-		4F54D4302492A7BD009A9954 /* Heatmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F54D42F2492A7BD009A9954 /* Heatmap.swift */; };
-		8262239424940A6D009DEDAB /* SBDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238C24940A6C009DEDAB /* SBDataManager.swift */; };
-		8262239524940A6D009DEDAB /* SBData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238D24940A6C009DEDAB /* SBData.swift */; };
-		8262239624940A6D009DEDAB /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262238F24940A6C009DEDAB /* WordModel.swift */; };
-		8262239A24940A6D009DEDAB /* TextParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239324940A6C009DEDAB /* TextParser.swift */; };
-		8262239E24940BD2009DEDAB /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239D24940BD2009DEDAB /* WordView.swift */; };
-		826223A024940C05009DEDAB /* WordCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8262239F24940C05009DEDAB /* WordCloud.swift */; };
 		A7FD7F892492A53F00C26668 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FD7F882492A53F00C26668 /* GraphView.swift */; };
+		E0EED6792494159000ABE432 /* HeatmapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EED6782494159000ABE432 /* HeatmapViewModel.swift */; };
+		E0EED67B2494159900ABE432 /* Heatmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0EED67A2494159900ABE432 /* Heatmap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,12 @@
 		25895DC0249172D3006C41A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		25895DC3249172D3006C41A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25895DC5249172D3006C41A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-
+		8262238C24940A6C009DEDAB /* SBDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDataManager.swift; sourceTree = "<group>"; };
+		8262238D24940A6C009DEDAB /* SBData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBData.swift; sourceTree = "<group>"; };
+		8262238F24940A6C009DEDAB /* WordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
+		8262239324940A6C009DEDAB /* TextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextParser.swift; sourceTree = "<group>"; };
+		8262239D24940BD2009DEDAB /* WordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
+		8262239F24940C05009DEDAB /* WordCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCloud.swift; sourceTree = "<group>"; };
 		A4540CDB2492A57C00082584 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Tree.swift; path = SwiftUI_Graphics/TreeMap/Tree.swift; sourceTree = SOURCE_ROOT; };
 		A4540CDD2492A5BC00082584 /* Diagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Diagram.swift; path = SwiftUI_Graphics/TreeMap/Diagram.swift; sourceTree = SOURCE_ROOT; };
 		A4540CDF2492A5E700082584 /* CGPoint+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CGPoint+Extensions.swift"; path = "SwiftUI_Graphics/TreeMap/CGPoint+Extensions.swift"; sourceTree = SOURCE_ROOT; };
@@ -56,15 +61,9 @@
 		A4540CE72492A68D00082584 /* NodeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NodeStyle.swift; path = SwiftUI_Graphics/TreeMap/NodeStyle.swift; sourceTree = SOURCE_ROOT; };
 		A4540CE92492A8B700082584 /* TreeMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMap.swift; path = SwiftUI_Graphics/TreeMap/TreeMap.swift; sourceTree = SOURCE_ROOT; };
 		A4DC52C62494068300365C3F /* TreeMapStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TreeMapStyle.swift; path = SwiftUI_Graphics/TreeMap/TreeMapStyle.swift; sourceTree = SOURCE_ROOT; };
-		4F54D42B24929F2A009A9954 /* HeatmapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatmapViewModel.swift; sourceTree = "<group>"; };
-		4F54D42F2492A7BD009A9954 /* Heatmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heatmap.swift; sourceTree = "<group>"; };
-		8262238C24940A6C009DEDAB /* SBDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBDataManager.swift; sourceTree = "<group>"; };
-		8262238D24940A6C009DEDAB /* SBData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBData.swift; sourceTree = "<group>"; };
-		8262238F24940A6C009DEDAB /* WordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
-		8262239324940A6C009DEDAB /* TextParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextParser.swift; sourceTree = "<group>"; };
-		8262239D24940BD2009DEDAB /* WordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
-		8262239F24940C05009DEDAB /* WordCloud.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCloud.swift; sourceTree = "<group>"; };
 		A7FD7F882492A53F00C26668 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		E0EED6782494159000ABE432 /* HeatmapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatmapViewModel.swift; sourceTree = "<group>"; };
+		E0EED67A2494159900ABE432 /* Heatmap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Heatmap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +106,7 @@
 		25895DB6249172D1006C41A5 /* SwiftUI_Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				E0EED675249414F800ABE432 /* Heatmap */,
 				A4DC52C824940A0F00365C3F /* TreeMap */,
 				25895DB7249172D1006C41A5 /* AppDelegate.swift */,
 				8262238A24940A6C009DEDAB /* Sunburst */,
@@ -150,30 +150,12 @@
 		8262238E24940A6C009DEDAB /* WorldCloud */ = {
 			isa = PBXGroup;
 			children = (
-				4F54D42524929E8A009A9954 /* ViewModel */,
-				4F54D42324929E67009A9954 /* View */,
 				8262239F24940C05009DEDAB /* WordCloud.swift */,
 				8262239D24940BD2009DEDAB /* WordView.swift */,
 				8262238F24940A6C009DEDAB /* WordModel.swift */,
 				8262239324940A6C009DEDAB /* TextParser.swift */,
 			);
 			path = WorldCloud;
-			sourceTree = "<group>";
-		};
-		4F54D42324929E67009A9954 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				4F54D42F2492A7BD009A9954 /* Heatmap.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		4F54D42524929E8A009A9954 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				4F54D42B24929F2A009A9954 /* HeatmapViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		A4DC52C824940A0F00365C3F /* TreeMap */ = {
@@ -190,6 +172,31 @@
 				A4DC52C62494068300365C3F /* TreeMapStyle.swift */,
 			);
 			path = TreeMap;
+			sourceTree = "<group>";
+		};
+		E0EED675249414F800ABE432 /* Heatmap */ = {
+			isa = PBXGroup;
+			children = (
+				E0EED6772494152C00ABE432 /* ViewModel */,
+				E0EED6762494151C00ABE432 /* View */,
+			);
+			path = Heatmap;
+			sourceTree = "<group>";
+		};
+		E0EED6762494151C00ABE432 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0EED67A2494159900ABE432 /* Heatmap.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E0EED6772494152C00ABE432 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E0EED6782494159000ABE432 /* HeatmapViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,24 +270,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				A4DC52C72494068300365C3F /* TreeMapStyle.swift in Sources */,
 				A4540CE62492A66E00082584 /* CollectDict.swift in Sources */,
-				4F54D4302492A7BD009A9954 /* Heatmap.swift in Sources */,
 				02E1AFA424929C9A0073DF1E /* LineView.swift in Sources */,
 				8262239624940A6D009DEDAB /* WordModel.swift in Sources */,
 				25895DB8249172D1006C41A5 /* AppDelegate.swift in Sources */,
+				E0EED6792494159000ABE432 /* HeatmapViewModel.swift in Sources */,
 				A4540CDC2492A57C00082584 /* Tree.swift in Sources */,
 				25895DBA249172D1006C41A5 /* SceneDelegate.swift in Sources */,
 				A4540CEA2492A8B700082584 /* TreeMap.swift in Sources */,
 				A4540CDE2492A5BC00082584 /* Diagram.swift in Sources */,
+				E0EED67B2494159900ABE432 /* Heatmap.swift in Sources */,
 				A4540CE02492A5E700082584 /* CGPoint+Extensions.swift in Sources */,
 				A4540CE22492A60300082584 /* Line.swift in Sources */,
 				A4540CE82492A68D00082584 /* NodeStyle.swift in Sources */,
 				A4540CE42492A64B00082584 /* Unique.swift in Sources */,
 				8262239424940A6D009DEDAB /* SBDataManager.swift in Sources */,
 				25895DBC249172D1006C41A5 /* ContentView.swift in Sources */,
-				4F54D42C24929F2A009A9954 /* HeatmapViewModel.swift in Sources */,
 				A7FD7F892492A53F00C26668 /* GraphView.swift in Sources */,
 				8262239E24940BD2009DEDAB /* WordView.swift in Sources */,
 				8262239524940A6D009DEDAB /* SBData.swift in Sources */,
