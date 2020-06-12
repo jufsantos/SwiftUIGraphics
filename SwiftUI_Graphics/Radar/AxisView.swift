@@ -46,7 +46,7 @@ struct AxisView: View {
                         return [center, nextPoint]
                     }
                     
-                    Text("\(self.components[index].subtitle)").position(geo.center().findPointIn(radius: 175, radians: self.degreeInterval*Double(index+1)))
+                    Text("\(self.components[index].subtitle)").position(geo.center().findPointIn(radius: 175, radians: self.degreeInterval*Double(index + 1)))
                 }
             }
         }
@@ -59,6 +59,7 @@ extension CGPoint {
     static func +(p1:CGPoint, p2:CGPoint) -> CGPoint {
         return CGPoint(x: p1.x + p2.x, y: p1.y+p2.y)
     }
+    
     func findPointIn(radius: Double, radians: Double) -> CGPoint{
         return self + CGPoint(x: radius * cos(radians), y: radius * sin(radians))
     }
