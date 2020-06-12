@@ -34,12 +34,6 @@ struct NodeStyle: ViewModifier {
                 .background(Circle().stroke())
                 .background(Circle().fill(backgroundColor))
                 .padding(10))
-        default:
-            return AnyView(content
-                .frame(width: 50, height: 50)
-                .background(Circle().stroke())
-                .background(Circle().fill(backgroundColor))
-                .padding(10))
         }
         
     }
